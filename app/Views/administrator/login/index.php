@@ -82,8 +82,14 @@
         $('.alert-danger').removeClass('d-none');
         return;
       }
-      console.log(res);
-      location.href = `<?php echo base_url('/dashboard'); ?>`;
+      // var_dump(res);
+      if(res.data.id_level === 1){
+        location.href = `<?php echo base_url('/dashboard'); ?>`;
+      }
+      else{
+        location.href = `<?php echo base_url('settings/levels'); ?>`;
+      }
+      
     })
   }
 </script>
