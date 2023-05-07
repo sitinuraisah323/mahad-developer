@@ -32,7 +32,7 @@ class Dashboard extends Authenticated
 		if (!$session) {
 
             redirect('');
-        }git
+        }
     }
 	
 	
