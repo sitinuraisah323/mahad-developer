@@ -192,12 +192,8 @@ class Auth extends BaseApiController
         $user = $this->model
             ->select('users.*, levels.level')
 			->join('levels','levels.id = users.id_level','left')
-			->select('units.name as unit_name, units.office_id')
-			->join('units','units.id = users.id_unit','left')
-			->select('cabang.cabang as cabang_name, cabang.branch_id')
-			->join('cabang','cabang.id = users.id_cabang','left')
-			->select('areas.area as area_name, areas.area_id')
-			->join('areas','areas.id = users.id_area','left')
+			// ->select('cabang.cabang as cabang_name, cabang.branch_id')
+			// ->join('cabang','cabang.id = users.id_cabang','left')
             ->where('username', $username)->first();
             // var_dump($user);exit;
 
@@ -215,8 +211,6 @@ class Auth extends BaseApiController
             ->join('menus','menus.id = levels_privileges.id_menu')
             ->where('id_level', $user->id_level)->findAll();
 
-         $notifications = (new \App\Models\Notifications())
-            ->where('read', '0')->findAll();
         session()->set(array(
             'user'  => $user,
             'logged_in' => true,
