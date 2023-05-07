@@ -32,17 +32,13 @@ class Dashboard extends Authenticated
 		if (!$session) {
 
             redirect('');
-        }
+        }git
     }
 	
 	
 	public function index()
 	{
-		$area = new Area();
-		$view = new MonitoringOsView();
-		$data['areas'] = $area->getArea();
-		$data['view'] = $view->getViewOs();
-		return view('dashboard/index', $data);
+		return view('dashboard/index');
 	}
 
 	
