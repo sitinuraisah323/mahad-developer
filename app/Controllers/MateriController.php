@@ -11,7 +11,7 @@ use CodeIgniter\Database\Postgre\Connection;
 
 
 // use  CodeIgniter\Database\BaseConnection();
-class Dashboard extends Authenticated
+class MateriController extends Authenticated
 {
 
 	//  private $db1;
@@ -38,14 +38,9 @@ class Dashboard extends Authenticated
 	
 	public function index()
 	{
-		return view('dashboard/index');
+		return view('administrator/materi/index');
 	}
 
-    public function users()
-	{
-        return view('users/dashboard/index');
-    }
-	
 	
 }
 

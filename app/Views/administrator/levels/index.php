@@ -96,7 +96,7 @@
     <!-- <script src="<?php echo base_url(); ?>/assets/js/page/datatables.js"></script> -->
     <script src="<?php echo base_url(); ?>/assets/bundles/sweetalert/sweetalert.min.js"></script>
     <!-- Page Specific JS File -->
-    
+
     <script src="<?php echo base_url(); ?>/assets/js/page/sweetalert.js"></script>
 
     <script type="text/javascript">
