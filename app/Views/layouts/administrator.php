@@ -73,6 +73,7 @@
     <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/dropify.js"></script>
 
     <script>
         function convertToRupiah(angka) {

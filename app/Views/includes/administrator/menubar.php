@@ -125,7 +125,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('monitoring/users') ?>">Siswa</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('monitoring/users') ?>">Guru</a></li>
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Materi</a></li>
+                <!-- <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php //echo base_url('MateriController') ?>">Materi</a></li> -->
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Bobot Penilaian</a></li>
               </ul>
             </div>
@@ -139,8 +139,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/accordions.html">Language</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Agama Islam</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Judul Materi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('DetailSubject') ?>">Detail Materi</a></li>
               </ul>
             </div>
           </li>
