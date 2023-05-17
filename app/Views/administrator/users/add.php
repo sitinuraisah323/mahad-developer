@@ -244,7 +244,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">jquery-steps wizard</h4>
-                  <form id="example-form" action="#">
+                  <form id="example-form"  action="#">
                     <div>
                       <h3>Account</h3>
                       <section>

@@ -23,7 +23,7 @@ class Authenticated extends BaseController
         }
         $levelAllowerd = [1,2];
         
-        if(!session()->get('user')->id_level){
+        if(!session()->get('user')){
             header('Location: '.base_url(''));
             die;
         }

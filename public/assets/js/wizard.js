@@ -6,7 +6,7 @@
     bodyTag: "section",
     transitionEffect: "slideLeft",
     onFinished: function(event, currentIndex) {
-      alert("Submitted! 1");
+      form.submit()
     }
   });
   var validationForm = $("#example-validation-form");

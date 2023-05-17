@@ -201,7 +201,7 @@ class Auth extends BaseApiController
             // echo 'satu';exit;
             return $this->sendResponse([],422,'Username Or Passord Wrong ');
         }
-        $isPasswordVerified = password_verify($this->request->getPost('password'),$user->password);
+        $isPasswordVerified = password_verify($this->request->getPost('password'),$user['password']);
         if(!$isPasswordVerified) {
             //  echo 'dua';exit;
             return $this->sendResponse([],422,'Username Or Password Wrong ');
@@ -209,7 +209,7 @@ class Auth extends BaseApiController
         $privileges = (new \App\Models\LevelsPrivileges())
             ->select('levels_privileges.*')
             ->join('menus','menus.id = levels_privileges.id_menu')
-            ->where('id_level', $user->id_level)->findAll();
+            ->where('id_level', $user['id_level'])->findAll();
 
         session()->set(array(
             'user'  => $user,
