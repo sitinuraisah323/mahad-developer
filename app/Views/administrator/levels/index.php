@@ -146,6 +146,7 @@
           axios.post(`<?php echo base_url(); ?>/api/settings/levels/updated`, formData).then(res => {
             let status = res.data.status;
             let data = res.data.data;
+            console.log(status)
             if (status === 422) {
               let message = Object.values(data)[0];
               swal('Validasi Inputan', message, 'error');
@@ -181,7 +182,7 @@
             },
             {
               data: function(data) {
-                return `   <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit">Edit</button>
+                return ` <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit">Edit</button>
                                       <button  onclick="btnDelete(${data.id})" class="btn btn-danger btn-delete">Delete</button>`;
               }
             }

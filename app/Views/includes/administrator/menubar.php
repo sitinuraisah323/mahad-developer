@@ -123,9 +123,10 @@
             </a>
             <div class="collapse" id="page-layouts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('monitoring/users') ?>">Siswa</a></li>
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('monitoring/users') ?>">Guru</a></li>
-                <!-- <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php //echo base_url('MateriController') ?>">Materi</a></li> -->
+
+                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datamaster/student') ?>">Siswa</a></li>
+                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datanaster/teacher') ?>">Guru</a></li>
+                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Materi</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Bobot Penilaian</a></li>
               </ul>
             </div>

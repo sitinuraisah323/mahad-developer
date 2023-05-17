@@ -1,29 +1,42 @@
 <?php
-namespace App\Models;
 
+namespace App\Models;
 
 use CodeIgniter\Model;
 
-/**
- * Class Users
- * @package App\Models
- * @author Bagus Aditia Setiawan
- * @contact 081214069289
- * @copyright saeapplication.com
- */
 class Users extends Model
 {
-    public $table = 'users';
+	protected $DBGroup              = 'default';
+	protected $table                = 'users';
+	protected $primaryKey           = 'id';
+	protected $useAutoIncrement     = true;
+	protected $insertID             = 0;
+	protected $returnType           = 'array';
+	protected $useSoftDelete        = false;
+	protected $protectFields        = true;
+	protected $allowedFields        = ['id','id_visitor','id_level','email','username','password', 'status'];
 
-    protected $primaryKey = 'id';
+	// Dates
+	protected $useTimestamps        = true;
+	protected $dateFormat           = 'datetime';
+	protected $createdField         = 'created_at';
+	protected $updatedField         = 'updated_at';
+	protected $deletedField         = 'deleted_at';
 
-    protected $returnType     = 'object';
+	// Validation
+	protected $validationRules      = [];
+	protected $validationMessages   = [];
+	protected $skipValidation       = false;
+	protected $cleanValidationRules = true;
 
-    protected $useSoftDeletes = false;
-
-    protected $allowedFields = ['id','id_employee','id_unit','id_cabang','id_area','email','username','password'];
-
-    protected $validationRules    = [];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
+	// Callbacks
+	protected $allowCallbacks       = true;
+	protected $beforeInsert         = [];
+	protected $afterInsert          = [];
+	protected $beforeUpdate         = [];
+	protected $afterUpdate          = [];
+	protected $beforeFind           = [];
+	protected $afterFind            = [];
+	protected $beforeDelete         = [];
+	protected $afterDelete          = [];
 }

@@ -244,23 +244,23 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">jquery-steps wizard</h4>
-                  <form id="example-form" action="#">
+                  <form onsubmit="submitform(event)">
                     <div>
                       <h3>Account</h3>
                       <section>
                         <h4>Account</h4>
                         <div class="form-group">
                           <label>Email address</label>
-                          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" class="form-control" placeholder="Password">
+                          <input type="password" name= "password" class="form-control" placeholder="Password">
                         </div>
                         <div class="form-group">
                           <label>Confirm Password</label>
-                          <input type="password" class="form-control" placeholder="Confirm password">
+                          <input type="password" name= "confirm" class="form-control" placeholder="Confirm password">
                         </div>
                       </section>
                       <h3>Profile</h3>
@@ -268,7 +268,7 @@
                         <h4>Profile</h4>
                         <div class="form-group">
                           <label>First name</label>
-                          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
+                          <input type="text"  class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
                         </div>
                         <div class="form-group">
                           <label>Last name</label>

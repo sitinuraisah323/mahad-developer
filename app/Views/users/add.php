@@ -244,24 +244,29 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">jquery-steps wizard</h4>
-                  <form id="example-form" action="#">
+                  <form id="example-form" onsubmit="submitform(event)">
                     <div>
                       <h3>Account</h3>
                       <section>
-                        <h4>Account</h4>
+                        <!-- <h4>Account</h4> -->
+                        <div class="form-group">
+                          <label>Username</label>
+                          <input type="text" name ="username" id = "username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
                         <div class="form-group">
                           <label>Email address</label>
-                          <input type="email" name ="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="email" name ="email" id = "email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" name = "password" class="form-control" placeholder="Password">
+                          <input type="password" name = "password" id = "password" class="form-control" placeholder="Password">
                         </div>
                         <div class="form-group">
                           <label>Level User</label>
-                          <select type="text" name = "level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                            <option value = "Student">Student</option>
+                          <select type="text" id = 'id_level' name = "id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                            <option value = "">-- Pilih Level --</option>
                           </select>
                         </div>
                         
@@ -271,25 +276,20 @@
                         <h4>Profile</h4>
                         <div class="form-group">
                           <label>Nama Lengkap</label>
-                          <input type="text" name = "name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap">
+                          <input type="text" name = "name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
                           <label>Jenis Kelamin</label>
-                          <input type="password" name = "gender" class="form-control" placeholder="">
+                          <select type="text" id = 'gender' name = "gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                            <option value = "">-- Pilih Jenis Kelamin --</option>
+                            <option value = "Male">Laki-laki</option>
+                            <option value = "Female">Perempuan</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label>Alamat</label>
-                          <input type="text" name = "address" class="form-control" placeholder="Jl. Pegangsaan ......">
+                          <input type="text" name = "address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......">
                         </div>
-                      </section>
-                      <h3>Comments</h3>
-                      <section>
-                        <h4>Comments</h4>
-                        <div class="form-group">
-                          <label>Comments</label>
-                          <textarea name = "comment" class="form-control" rows="3"></textarea>
-                        </div>
-                        
                       </section>
                       <h3>Finish</h3>
                       <section>
@@ -334,18 +334,41 @@
   <script src="<?= base_url(); ?>/assets/js/misc.js"></script>
   <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
   <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
+  <script src="<?php echo base_url();?>/assets/js/axios/dist/axios.js"></script>
+
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
 
   <script>
-    
+
+
+
+// Get Data level
+        var level = document.getElementById('id_level');
+        
+        axios.get(`<?php echo base_url(); ?>/api/settings/levels`).then(
+            res => {
+                const {
+                    data
+                } = res.data;
+                
+                data.forEach(item => {
+                    var opt = document.createElement("option");
+                    opt.value = item.id;
+                    opt.text = item.level;
+                    level.appendChild(opt);
+
+                })
+            });
+
+// Post Data    
     const submitform = (event) => {
         event.preventDefault();
         let formData = new FormData(event.target);
-        let id = $('#modal-catalog-category').find('[name="id"]').val();
-        if (id === '') {
-            axios.post(`<?php echo base_url();?>/api/auth/insert`, formData).then(res => {
+        console.log(formData);
+        axios.post(`<?php echo base_url();?>/api/visitors/insert`, formData).then(res => {
+              console.log(res)
                 let status = res.data.status;
                 let data = res.data.data;
                 if (status === 422) {
@@ -353,12 +376,10 @@
                     swal('Validasi Inputan', message, 'error');
                     return;
                 }
-                formClear();
-                dataTable.ajax.reload();
-                $('#modal-catalog-category').modal('hide');
-            });
-        } else {
-            axios.post(`<?php echo base_url();?>/api/auth/updated`, formData).then(res => {
+                
+        });
+            axios.post(`<?php echo base_url();?>/api/users/insert`, formData).then(res => {
+              console.log(res)
                 let status = res.data.status;
                 let data = res.data.data;
                 if (status === 422) {
@@ -366,12 +387,14 @@
                     swal('Validasi Inputan', message, 'error');
                     return;
                 }
-                formClear();
-                dataTable.ajax.reload();
-                $('#modal-catalog-category').modal('hide');
+                window.location.href = `<?php echo base_url('datamaster/users'); ?>`;
+                // dataTable.ajax.reload();
+                // $('#modal-catalog-category').modal('hide');
             });
-        }
+       
     }
+
+    
   </script>
   <!-- End custom js for this page-->
 </body>

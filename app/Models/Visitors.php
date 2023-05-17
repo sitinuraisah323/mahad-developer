@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Visitor extends Model
+class Visitors extends Model
 {
 	protected $DBGroup              = 'default';
 	protected $table                = 'visitors';
@@ -17,7 +17,7 @@ class Visitor extends Model
 	protected $allowedFields        = ['name', 'gender', 'address'];
 
 	// Dates
-	protected $useTimestamps        = false;
+	protected $useTimestamps        = true;
 	protected $dateFormat           = 'datetime';
 	protected $createdField         = 'created_at';
 	protected $updatedField         = 'updated_at';
