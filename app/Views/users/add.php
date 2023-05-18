@@ -251,21 +251,21 @@
                         <!-- <h4>Account</h4> -->
                         <div class="form-group">
                           <label>Username</label>
-                          <input type="text" name ="username" id = "username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="text" name ="username" id = "username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
                           <label>Email address</label>
-                          <input type="email" name ="email" id = "email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="email" name ="email" id = "email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" name = "password" id = "password" class="form-control" placeholder="Password">
+                          <input type="password" name = "password" id = "password" class="form-control" placeholder="Password" required autofocus>
                         </div>
                         <div class="form-group">
                           <label>Level User</label>
-                          <select type="text" id = 'id_level' name = "id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <select type="text" id = 'id_level' name = "id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                             <option value = "">-- Pilih Level --</option>
                           </select>
                         </div>
@@ -276,11 +276,11 @@
                         <h4>Profile</h4>
                         <div class="form-group">
                           <label>Nama Lengkap</label>
-                          <input type="text" name = "name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap">
+                          <input type="text" name = "name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap" required autofocus>
                         </div>
                         <div class="form-group">
                           <label>Jenis Kelamin</label>
-                          <select type="text" id = 'gender' name = "gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                          <select type="text" id = 'gender' name = "gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                             <option value = "">-- Pilih Jenis Kelamin --</option>
                             <option value = "Male">Laki-laki</option>
                             <option value = "Female">Perempuan</option>
@@ -288,7 +288,7 @@
                         </div>
                         <div class="form-group">
                           <label>Alamat</label>
-                          <input type="text" name = "address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......">
+                          <input type="text" name = "address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......" required autofocus>
                         </div>
                       </section>
                       <h3>Finish</h3>

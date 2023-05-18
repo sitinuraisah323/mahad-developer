@@ -63,6 +63,60 @@ class Visitors extends BaseApiController
     public $content = 'Master Users';
     //--------------------------------------------------------------------
 
+    public function student()
+    {
+        // echo 'Yes'; exit;
+        if(is_null(session()->get('logged_in'))){            
+            return $this->sendResponse('No Autheticated',403,'No Autheticated');
+            die;
+        }
+        if($this->model){
+            $this->where();
+            
+            $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
+            $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
+
+            $data = $this->model->where('id_level', 3)->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+            $this->where();
+            $totalRecord = $this->model->countAllResults();
+            if(method_exists($this,'afterIndex')){
+                $data = $this->afterIndex($data);
+            }
+            return $this->sendResponse($data,201,[
+                'totalRecord' => $totalRecord,
+            ]);
+        }
+        return $this->sendResponse('Model Not Found',201,'Model Not Found '.$this->model);
+
+    }
+
+    public function teacher()
+    {
+        // echo 'Yes'; exit;
+        if(is_null(session()->get('logged_in'))){            
+            return $this->sendResponse('No Autheticated',403,'No Autheticated');
+            die;
+        }
+        if($this->model){
+            $this->where();
+            
+            $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
+            $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
+
+            $data = $this->model->where('id_level', 2)->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+            $this->where();
+            $totalRecord = $this->model->countAllResults();
+            if(method_exists($this,'afterIndex')){
+                $data = $this->afterIndex($data);
+            }
+            return $this->sendResponse($data,201,[
+                'totalRecord' => $totalRecord,
+            ]);
+        }
+        return $this->sendResponse('Model Not Found',201,'Model Not Found '.$this->model);
+
+    }
+
     public function insert(){
         $this->validate([
             'name' => [
@@ -100,6 +154,7 @@ class Visitors extends BaseApiController
                 'name'      =>  $this->request->getPost('name'), 
                 'gender'        =>  $this->request->getPost('gender'),
                 'address'        =>  $this->request->getPost('address'),
+                'id_level'        =>  $this->request->getPost('id_level'),
                 
             ];
             $this->model->insert($data);

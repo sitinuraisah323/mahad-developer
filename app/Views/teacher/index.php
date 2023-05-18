@@ -10,7 +10,7 @@
   <div class="content-wrapper">
     <div class="page-header">
       <h3 class="page-title">
-        Data Siswa
+        Data Guru
       </h3>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -23,7 +23,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
-            <h4 class="card-title">Data Siswa</h4>
+            <h4 class="card-title">Data Guru</h4>
           </div>
 
           <!-- <div class="col-lg-6 d-flex justify-content-end">
@@ -177,7 +177,7 @@
             processing: true,
 			  serverSide: false,
           ajax: {
-            url: `<?php echo base_url(); ?>/api/visitors/student`,
+            url: `<?php echo base_url(); ?>/api/visitors/teacher`,
             dataFilter: function(data) {
               var json = jQuery.parseJSON(data);
               json.recordsTotal = json.message.totalRecord;
