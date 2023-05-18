@@ -27,6 +27,10 @@ class Visitor extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => 255,
 			],
+			'id_level'      => [
+				'type'           => 'INT',
+				'constraint'     => 5,
+			],
 			'created_at' => [
 				'type'           => 'DATETIME',
 				'null'           => true,

@@ -100,11 +100,10 @@ class Users extends BaseApiController
             }
             return $this->sendResponse($this->validator->getErrors(),501,$message);
         }else{
-            $visitors = $this->visitors->orderBy('id', 'desc')->first();
+            $visitors = $this->visitors->select('id')->orderBy('id', 'desc')->first();
             foreach($visitors as $data){
                 $id_visitor = $data;
             }
-
             $data = [                
                 'id_visitor'    =>  $id_visitor, 
                 'id_level'      =>  $this->request->getPost('id_level'),
