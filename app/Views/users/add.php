@@ -3,11 +3,12 @@
 
 
 <!-- Mirrored from www.urbanui.com/melody/template/pages/forms/wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:25 GMT -->
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Melody Admin</title>
+  <title>MA'HAD || E LEARNING</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/iconfonts/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/css/vendor.bundle.base.css">
@@ -27,11 +28,11 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo"/>
-            <a style="font-weight: bold; color:#392C70;">
-                E-Pesantren
-            </a></span>
-        <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo"/></a>
+        <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" />
+          <a style="font-weight: bold; color:#392C70;">
+            E-LearniNG
+          </a></span>
+        <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -66,7 +67,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="<?= base_url(); ?>/assets/images/faces/face5.jpg" alt="profile"/>
+              <img src="<?= base_url(); ?>/assets/images/faces/face5.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -80,7 +81,7 @@
               </a>
             </div>
           </li>
-          
+
         </ul>
 
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -96,8 +97,12 @@
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close fa fa-times"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+          </div>
           <p class="settings-heading mt-2">HEADER SKINS</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles primary"></div>
@@ -135,7 +140,7 @@
               </ul>
             </div>
           </li>
-          
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
               <i class="fab fa-trello menu-icon"></i>
@@ -162,7 +167,7 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/accordions.html">Language</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Agama Islam</a></li>
               </ul>
-              </div>
+            </div>
           </li>
 
           <li class="nav-item">
@@ -196,7 +201,7 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/charts/chartist.html">Chartists</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/charts/justGage.html">JustGage</a></li>
               </ul>
-              </div>
+            </div>
           </li>
 
           <li class="nav-item">
@@ -230,20 +235,20 @@
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-                Form Users
+              Data Users
             </h3>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+              <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Forms</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Users</li>
-                </ol>
+              </ol>
             </nav>
           </div>
           <div class="row">
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">jquery-steps wizard</h4>
+                  <h4 class="card-title">Form pendaftaran User Baru</h4>
                   <form id="example-form" onsubmit="submitform(event)">
                     <div>
                       <h3>Account</h3>
@@ -251,44 +256,44 @@
                         <!-- <h4>Account</h4> -->
                         <div class="form-group">
                           <label>Username</label>
-                          <input type="text" name ="username" id = "username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                          <input type="text" name="username" id="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
                           <label>Email address</label>
-                          <input type="email" name ="email" id = "email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                          <input type="email" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                         </div>
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" name = "password" id = "password" class="form-control" placeholder="Password" required autofocus>
+                          <input type="password" name="password" id="password" class="form-control" placeholder="Password" required autofocus>
                         </div>
                         <div class="form-group">
                           <label>Level User</label>
-                          <select type="text" id = 'id_level' name = "id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                            <option value = "">-- Pilih Level --</option>
+                          <select type="text" id='id_level' name="id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                            <option value="">-- Pilih Level --</option>
                           </select>
                         </div>
-                        
+
                       </section>
                       <h3>Profile</h3>
                       <section>
                         <h4>Profile</h4>
                         <div class="form-group">
                           <label>Nama Lengkap</label>
-                          <input type="text" name = "name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap" required autofocus>
+                          <input type="text" name="name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap" required autofocus>
                         </div>
                         <div class="form-group">
                           <label>Jenis Kelamin</label>
-                          <select type="text" id = 'gender' name = "gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                            <option value = "">-- Pilih Jenis Kelamin --</option>
-                            <option value = "Male">Laki-laki</option>
-                            <option value = "Female">Perempuan</option>
+                          <select type="text" id='gender' name="gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                            <option value="">-- Pilih Jenis Kelamin --</option>
+                            <option value="Male">Laki-laki</option>
+                            <option value="Female">Perempuan</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label>Alamat</label>
-                          <input type="text" name = "address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......" required autofocus>
+                          <input type="text" name="address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......" required autofocus>
                         </div>
                       </section>
                       <h3>Finish</h3>
@@ -334,71 +339,67 @@
   <script src="<?= base_url(); ?>/assets/js/misc.js"></script>
   <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
   <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
-  <script src="<?php echo base_url();?>/assets/js/axios/dist/axios.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/axios/dist/axios.js"></script>
 
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
 
   <script>
+    // Get Data level
+    var level = document.getElementById('id_level');
 
+    axios.get(`<?php echo base_url(); ?>/api/settings/levels`).then(
+      res => {
+        const {
+          data
+        } = res.data;
 
+        data.forEach(item => {
+          var opt = document.createElement("option");
+          opt.value = item.id;
+          opt.text = item.level;
+          level.appendChild(opt);
 
-// Get Data level
-        var level = document.getElementById('id_level');
-        
-        axios.get(`<?php echo base_url(); ?>/api/settings/levels`).then(
-            res => {
-                const {
-                    data
-                } = res.data;
-                
-                data.forEach(item => {
-                    var opt = document.createElement("option");
-                    opt.value = item.id;
-                    opt.text = item.level;
-                    level.appendChild(opt);
+        })
+      });
 
-                })
-            });
-
-// Post Data    
+    // Post Data    
     const submitform = (event) => {
-        event.preventDefault();
-        let formData = new FormData(event.target);
-        console.log(formData);
-        axios.post(`<?php echo base_url();?>/api/visitors/insert`, formData).then(res => {
-              console.log(res)
-                let status = res.data.status;
-                let data = res.data.data;
-                if (status === 422) {
-                    let message = Object.values(data)[0];
-                    swal('Validasi Inputan', message, 'error');
-                    return;
-                }
-                
-        });
-            axios.post(`<?php echo base_url();?>/api/users/insert`, formData).then(res => {
-              console.log(res)
-                let status = res.data.status;
-                let data = res.data.data;
-                if (status === 422) {
-                    let message = Object.values(data)[0];
-                    swal('Validasi Inputan', message, 'error');
-                    return;
-                }
-                window.location.href = `<?php echo base_url('datamaster/users'); ?>`;
-                // dataTable.ajax.reload();
-                // $('#modal-catalog-category').modal('hide');
-            });
-       
-    }
+      event.preventDefault();
+      let formData = new FormData(event.target);
+      console.log(formData);
+      axios.post(`<?php echo base_url(); ?>/api/visitors/insert`, formData).then(res => {
+        console.log(res)
+        let status = res.data.status;
+        let data = res.data.data;
+        if (status === 422) {
+          let message = Object.values(data)[0];
+          swal('Validasi Inputan', message, 'error');
+          return;
+        }
 
-    
+      });
+      axios.post(`<?php echo base_url(); ?>/api/users/insert`, formData).then(res => {
+        console.log(res)
+        let status = res.data.status;
+        let data = res.data.data;
+        if (status === 422) {
+          let message = Object.values(data)[0];
+          swal('Validasi Inputan', message, 'error');
+          return;
+        }
+        window.location.href = `<?php echo base_url('datamaster/users'); ?>`;
+        // dataTable.ajax.reload();
+        // $('#modal-catalog-category').modal('hide');
+      });
+
+    }
   </script>
   <!-- End custom js for this page-->
 </body>
 
 
 <!-- Mirrored from www.urbanui.com/melody/template/pages/forms/wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:26 GMT -->
+
 </html>

@@ -58,7 +58,8 @@
     <script src="<?php echo base_url(); ?>/assets/js/axios/dist/axios.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/page/ion-icons.js"></script>
 
-
+    <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.addons.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/jszip.min.js"></script>
@@ -74,7 +75,8 @@
     <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
     <script src="<?= base_url(); ?>/assets/js/dropify.js"></script>
-
+    <script src="<?= base_url(); ?>/assets/js/hoverable-collapse.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/misc.js"></script>
     <script>
         function convertToRupiah(angka) {
             var rupiah = '';

@@ -71,6 +71,13 @@
                     <div class="modal-body">
                         <input type="hidden" name="id" value="">
                         <div class="form-group">
+                            <label>Judul Materi</label>
+                            <select type="text" id='id_level' name="id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                                <option value="">-- Pilih materi --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="name" class="col-form-label">Name</label>
                             <input type="text" class="form-control" name="name" id="name" required autofocus>
                         </div>
@@ -203,6 +210,24 @@
                     ],
                 });
             }
+
+            // Get Data level
+            var subject = document.getElementById('id_level');
+
+            axios.get(`<?php echo base_url(); ?>/api/subject/subject`).then(
+                res => {
+                    const {
+                        data
+                    } = res.data;
+
+                    data.forEach(item => {
+                        var opt = document.createElement("option");
+                        opt.value = item.id;
+                        opt.text = item.name;
+                        subject.appendChild(opt);
+
+                    })
+                });
 
             const btnDelete = (id) => {
                 axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {

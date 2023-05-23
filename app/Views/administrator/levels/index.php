@@ -24,18 +24,6 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Role List</h4>
-          <div class="row">
-            <div class="col-lg-6">
-              <p class="card-description">
-                Berikut adalah beberapa Role yang ada di website <code>E-PESANTREN</code>
-              </p>
-            </div>
-            <div class="col-lg-6 d-flex justify-content-end">
-              <button type="button" class="btn btn-inverse-info btn-fw" data-toggle="modal" data-target="#addRole" data-whatever="@fat">
-                <i class="fa fa-plus"></i> Buat Baru
-              </button>
-            </div>
-          </div>
           <br><br>
 
           <div class="table-responsive">
