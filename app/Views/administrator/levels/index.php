@@ -23,12 +23,9 @@
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Role List</h4>
           <div class="row">
             <div class="col-lg-6">
-              <p class="card-description">
-                Berikut adalah beberapa Role yang ada di website <code>E-PESANTREN</code>
-              </p>
+              <h4 class="card-title">Role List</h4>
             </div>
             <div class="col-lg-6 d-flex justify-content-end">
               <button type="button" class="btn btn-inverse-info btn-fw" data-toggle="modal" data-target="#addRole" data-whatever="@fat">
@@ -36,7 +33,6 @@
               </button>
             </div>
           </div>
-          <br><br>
 
           <div class="table-responsive">
             <table class="table table-hover" id="table-1">
@@ -161,9 +157,14 @@
 
       const initDataTable = () => {
         dataTable = $('#table-1').DataTable({
-          serverSide: true,
           ordering: true,
-          searching: true,
+          retrieve: true,
+          dom: 'Bfrtip',
+          pageLength: 25,
+          destroy: true,
+          bDestroy: true,
+          processing: true,
+          serverSide: false,
           ajax: {
             url: `<?php echo base_url(); ?>/api/settings/levels`,
             dataFilter: function(data) {

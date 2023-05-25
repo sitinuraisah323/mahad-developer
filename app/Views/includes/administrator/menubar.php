@@ -3,7 +3,7 @@
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" />
           <a style="font-weight: bold; color:#392C70;">
-            E-Pesantren
+            E-Learning
           </a></span>
         <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" /></a>
       </div>
@@ -136,7 +136,7 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="far fa-compass menu-icon"></i>
-              <span class="menu-title">Materi Pembelajaran</span>
+              <span class="menu-title">Data Pembelajaran</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
