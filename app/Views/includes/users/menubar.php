@@ -59,9 +59,9 @@
                         Profil
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('schedule/schedules/users') ?>">
                         <i class="fa fa-user-multiple-outline mr-2 text-primary"></i>
-                        Jadwal Kegiatan Belajar
+                        Jadwal Pembelajaran
                     </a>
                 </div>
             </li>
