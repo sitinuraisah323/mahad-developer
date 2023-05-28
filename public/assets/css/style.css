@@ -24361,11 +24361,11 @@ dl li {
 
 /* Popovers */
 .popover-static-demo .popover {
-  width: 200px;
+  width: 210px;
   position: relative;
   display: block;
   float: left;
-  margin: 1rem .5rem;
+  margin: 1rem .6rem;
 }
 
 .popover-static-demo .popover.bs-popover-bottom-demo .arrow, .popover-static-demo .popover.bs-popover-top-demo .arrow {

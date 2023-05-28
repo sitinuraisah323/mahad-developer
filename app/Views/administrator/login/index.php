@@ -82,12 +82,12 @@
         $('.alert-danger').removeClass('d-none');
         return;
       }
-      // var_dump(res);
-      if(res.data.id_level === 1){
-        location.href = `<?php echo base_url('/dashboard'); ?>`;
+      console.log(res.data.data.user.id_level);
+      if(res.data.data.user.id_level == 1){
+        location.href = `<?php echo base_url('/dashboard');?>`;
       }
       else{
-        location.href = `<?php echo base_url('settings/levels'); ?>`;
+        location.href = `<?php echo base_url('/dashboard/users');?>`;
       }
       
     })
