@@ -70,10 +70,10 @@
             <li class="nav-item nav-profile">
                 <a class="nav-link">
                     <div class="nav-profile-text">
-                        Jane Robert
+                        <?= session('user.username'); ?>
                     </div>
                     <div class="nav-profile-img">
-                        <img src="../../images/faces/face5.jpg" alt="image" class="img-xs rounded-circle ml-3">
+                        <img src="<?= base_url(); ?>/assets/images/faces/users2.png" alt="image" class="img-xs rounded-circle ml-3">
                         <span class="availability-status online"></span>
                     </div>
                 </a>
@@ -95,7 +95,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" href="<?php echo base_url('monitoring/login/logout'); ?>">
                     <i class="fas fa-power-off font-weight-bold icon-sm"></i>
                 </a>
             </li>
