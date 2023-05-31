@@ -7,7 +7,7 @@
         <ul class="navbar-nav navbar-nav-left collapse navbar-collapse" id="horizontal-top-example">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="projects-dropdown" data-toggle="dropdown" aria-expanded="false">
-                    Materi 
+                    Materi
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="projects-dropdown">
                     <a class="dropdown-item" href="#">
@@ -20,7 +20,7 @@
                         Language
                     </a>
                     <div class="dropdown-divider"></div>
-                    
+
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -33,9 +33,9 @@
                         Struktur Ma'had Al-Jami'ah
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('dataumum/guru') ?>">
                         <i class="mdi mdi-scale-balance mr-2 text-primary"></i>
-                        Data Siswa
+                        Data Guru
                     </a>
                     <!-- <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
@@ -67,17 +67,6 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile">
-                <a class="nav-link">
-                    <div class="nav-profile-text">
-                        <?= session('user.username'); ?>
-                    </div>
-                    <div class="nav-profile-img">
-                        <img src="<?= base_url(); ?>/assets/images/faces/users2.png" alt="image" class="img-xs rounded-circle ml-3">
-                        <span class="availability-status online"></span>
-                    </div>
-                </a>
-            </li>
             <li class="nav-item nav-search">
                 <div class="nav-link">
                     <div class="search-field d-none d-md-block">
@@ -94,6 +83,17 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item nav-profile">
+                <a class="nav-link">
+                    <div class="nav-profile-text">
+                        <?= session('user.username'); ?>
+                    </div>
+                    <div class="nav-profile-img">
+                        <img src="<?= base_url(); ?>/assets/images/faces/users2.png" alt="image" class="img-xs rounded-circle ml-3">
+                        <span class="availability-status online"></span>
+                    </div>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('monitoring/login/logout'); ?>">
                     <i class="fas fa-power-off font-weight-bold icon-sm"></i>
@@ -105,4 +105,3 @@
         </button>
     </div>
 </nav>
-

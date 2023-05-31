@@ -14,6 +14,7 @@ use App\Controllers\Api\BaseApiController;
 class Schedules extends BaseApiController
 {
     public $modelName = '\App\Models\Schedules';
+    public $modelDays = '\App\Models\Days';
 
     /**
      * @var array
@@ -97,7 +98,7 @@ class Schedules extends BaseApiController
     ];
 
     //    product
-    public $content = 'Setting Subjects';
+    public $content = 'Setting Schedules';
     //--------------------------------------------------------------------
 
 }
