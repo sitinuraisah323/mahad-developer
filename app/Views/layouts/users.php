@@ -49,21 +49,49 @@
     </div>
     <!-- container-scroller -->
 
-    <!-- plugins:js -->
-    <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- General JS Scripts -->
+    <script src="<?php echo base_url(); ?>/assets/js/app.min.js"></script>
+
+    <!-- JS Libraies -->
+
+
+    <!-- Template JS File -->
+    <script src="<?php echo base_url(); ?>/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="<?php echo base_url(); ?>/assets/js/custom.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/axios/dist/axios.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/page/ion-icons.js"></script>
+
+    
     <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.addons.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/jszip.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/dataTables.buttons.min.js">
+    </script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
     <script src="<?= base_url(); ?>/assets/js/off-canvas.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/hoverable-collapse.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/misc.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/dashboard.js"></script>
+    <!-- Add Canvas.js -->
+    <script src="<?php echo base_url(); ?>/assets/canvas/canvasjs.min.js" type="text/javascript"></script>
     <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="<?= base_url(); ?>/assets/js/dashboard.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
+    <script src="<?= base_url(); ?>/assets/js/dropify.js"></script>
+    
+    <script>
+        function convertToRupiah(angka) {
+            var rupiah = '';
+            var angkarev = angka.toString().split('').reverse().join('');
+            for (var i = 0; i < angkarev.length; i++)
+                if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+            return rupiah.split('', rupiah.length - 1).reverse().join('');
+        }
+    </script>
+
+
+    <?php echo $this->renderSection('jslibraies'); ?>
     <!-- End custom js for this page-->
 </body>
 

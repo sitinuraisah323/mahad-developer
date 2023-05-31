@@ -10,14 +10,14 @@
                     Materi
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="projects-dropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('subject/subject') ?>">
                         <i class="mdi mdi-laptop-mac mr-2 text-primary"></i>
-                        Agama Islam
+                        Media Visual
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
                         <i class="mdi mdi-database mr-2 text-primary"></i>
-                        Language
+                        Media Audio Visual
                     </a>
                     <div class="dropdown-divider"></div>
 
