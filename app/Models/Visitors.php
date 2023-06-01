@@ -14,7 +14,7 @@ class Visitors extends Model
 	protected $returnType           = 'array';
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = ['name', 'gender', 'address'];
+	protected $allowedFields        = ['name', 'gender', 'address', 'id_level'];
 
 	// Dates
 	protected $useTimestamps        = true;

@@ -368,6 +368,7 @@
     const submitform = (event) => {
       event.preventDefault();
       let formData = new FormData(event.target);
+      formData.append('id_level', $('#id_level').val());
       console.log(formData);
       axios.post(`<?php echo base_url(); ?>/api/visitors/insert`, formData).then(res => {
         console.log(res)

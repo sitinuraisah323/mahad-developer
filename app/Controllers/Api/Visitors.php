@@ -140,6 +140,13 @@ class Visitors extends BaseApiController
                     'required' => 'address Kosong'
                 ]
             ],
+            'id_level' => [
+                'label'  => 'id_level',
+                'rules'  => 'required',
+                'errors' => [
+                    'required' => 'address Kosong'
+                ]
+            ],
             
         ]);
 
