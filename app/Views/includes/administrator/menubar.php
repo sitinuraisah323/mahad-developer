@@ -197,7 +197,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="<?php echo base_url('/profil') ?>" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link" href="<?php echo base_url('profil') ?>">
               <i class="fa fa-user menu-icon"></i>
               <span class="menu-title">Profil</span>
             </a>

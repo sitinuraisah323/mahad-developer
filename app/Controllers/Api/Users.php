@@ -143,23 +143,23 @@ class Users extends BaseApiController
 
     public function login_verify()
 	{
-        // $user = $this->model->where('username' ,$this->request->getPost('email'))->where('password',sha1($this->request->getPost('password')))->first();
-        // if(!$user){
-        //     return $this->sendResponse([],422,'Username Or Password Wrong ');
-        // }
-        // $privileges = (new \App\Models\Setting\Privileges())
-        //                 ->select('oauth_menus.name, access, oauth_menus.url')
-        //                 ->join('oauth_menus','oauth_menus.id = oauth_levels_privileges.menu_id')
-        //                 ->where('level_id', $user->level_id)->findAll();
-        // //$modelLevel = new \App\Models\Setting\Level();
-        // $role = (new \App\Models\Setting\Level())->find($user->level_id);
+        $user = $this->model->where('username' ,$this->request->getPost('email'))->where('password',sha1($this->request->getPost('password')))->first();
+        if(!$user){
+            return $this->sendResponse([],422,'Username Or Password Wrong ');
+        }
+        $privileges = (new \App\Models\Setting\Privileges())
+                        ->select('oauth_menus.name, access, oauth_menus.url')
+                        ->join('oauth_menus','oauth_menus.id = oauth_levels_privileges.menu_id')
+                        ->where('level_id', $user->level_id)->findAll();
+        //$modelLevel = new \App\Models\Setting\Level();
+        $role = (new \App\Models\Setting\Level())->find($user->level_id);
         // //SET SESSION
-        // session()->set(array(
-        //     'privileges'=> $privileges,
-        //     'role'      => $role,
-        //     'user'      => $user,
-        //     'logged_in' => true,
-        // ));
+        session()->set(array(
+            'privileges'=> $privileges,
+            'role'      => $role,
+            'user'      => $user,
+            'logged_in' => true,
+        ));
 
         // //SEND RESPONSE
         // return $this->sendResponse([
