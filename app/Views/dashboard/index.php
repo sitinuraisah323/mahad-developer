@@ -74,7 +74,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-8 grid-margin stretch-card">
+      <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">
@@ -82,94 +82,22 @@
               Data Materi
             </h4>
             <div class="table-responsive">
-              <table class="table">
+              <table class="table" id="table-1">
                 <thead>
                   <tr>
+                    <th>Id</th>
                     <th>Nama Materi</th>
-                    <th>Peserta</th>
-                    <th>Average</th>
                     <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Matematika
-                    </td>
-                    <td class="text-muted">
-                      PT613
-                    </td>
-                    <td>
-                      350
-                    </td>
-                    <td>
-                      <label class="badge badge-success badge-pill">Dispatched</label>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td class="font-weight-bold">
-                      Bahasa Inggris
-                    </td>
-                    <td class="text-muted">
-                      ST456
-                    </td>
-                    <td>
-                      520
-                    </td>
-                    <td>
-                      <label class="badge badge-warning badge-pill">Processing</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Fiqih
-                    </td>
-                    <td class="text-muted">
-                      CS789
-                    </td>
-                    <td>
-                      830
-                    </td>
-                    <td>
-                      <label class="badge badge-danger badge-pill">Failed</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Al Qur'an Hadits
-                    </td>
-                    <td class="text-muted">
-                      LP908
-                    </td>
-                    <td>
-                      579
-                    </td>
-                    <td>
-                      <label class="badge badge-primary badge-pill">Delivered</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Sejarah Islam
-                    </td>
-                    <td class="text-muted">
-                      HF675
-                    </td>
-                    <td>
-                      790
-                    </td>
-                    <td>
-                      <label class="badge badge-info badge-pill">On Hold</label>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4 grid-margin stretch-card">
+      <div class="col-md-5 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">
@@ -900,3 +828,138 @@
   </script>
 
   <?php echo $this->endSection(); ?>
+  <?php echo $this->section('jslibraies') ?>
+        <script src="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>/assets/js/page/datatables.js"></script> -->
+        <script src="<?php echo base_url(); ?>/assets/bundles/sweetalert/sweetalert.min.js"></script>
+        <!-- Page Specific JS File -->
+
+        <script src="<?php echo base_url(); ?>/assets/js/page/sweetalert.js"></script>
+
+        <script type="text/javascript">
+            var dataTable;
+            const formClear = () => {
+                $('#addSubject').find('[name="id"]').val('');
+                $('#addSubject').find('[name="name"]').val('');
+                $('#addSubject').find('[name="description"]').val('');
+            }
+            const openModal = () => {
+                formClear();
+
+                $('#addSubject').modal('show');
+            }
+
+            $('#upload-file').on('change', function(event) {
+                $('#addSubject').find('.btn-save').addClass('d-none');
+                let file = event.target.files[0];
+                let formData = new FormData();
+                formData.append('file', file);
+                axios.post(`<?php echo base_url(); ?>/api/filedrives/upload`, formData).then(res => {
+                    let id = res.data.data.id;
+                    $('#id_file_drive').val(id);
+                }).then(res => {
+                    $('#addSubject').find('.btn-save').removeClass('d-none');
+                })
+            });
+
+            const submitform = (event) => {
+                event.preventDefault();
+                let formData = new FormData(event.target);
+                let id = $('#addSubject').find('[name="id"]').val();
+                if (id === '') {
+                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/insert`, formData).then(res => {
+                        let status = res.data.status;
+                        let data = res.data.data;
+                        if (status === 422) {
+                            let message = Object.values(data)[0];
+                            swal('Validasi Inputan', message, 'error');
+                            return;
+                        }
+                        formClear();
+                        dataTable.ajax.reload();
+                        $('#addSubject').modal('hide');
+                    });
+                } else {
+                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/updated`, formData).then(res => {
+                        let status = res.data.status;
+                        let data = res.data.data;
+                        if (status === 422) {
+                            let message = Object.values(data)[0];
+                            swal('Validasi Inputan', message, 'error');
+                            return;
+                        }
+                        formClear();
+                        dataTable.ajax.reload();
+                        $('#addSubject').modal('hide');
+                    });
+                }
+            }
+
+            const initDataTable = () => {
+                dataTable = $('#table-1').DataTable({
+                    ajax: {
+                        url: `<?php echo base_url(); ?>/api/subject/subject`,
+                        dataFilter: function(data) {
+                            var json = jQuery.parseJSON(data);
+                            json.recordsTotal = json.message.totalRecord;
+                            json.recordsFiltered = json.message.totalRecord;
+                            json.data = json.data;
+                            return JSON.stringify(json); // return JSON string
+                        },
+                    },
+                    columns: [{
+                            data: "id"
+                        },
+                        {
+                            data: "name"
+                        },
+                        {
+                            data: "status"
+                        }
+                    ],
+                });
+            }
+
+            const btnDelete = (id) => {
+                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                    swal({
+                        title: 'Are you sure?',
+                        text: `Once deleted, you will not be able to recover ${res.data.data.level}!`,
+                        icon: 'warning',
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                        if (willDelete) {
+                            axios.get(`<?php echo base_url(); ?>/api/subject/subject/deleted/${id}`).then(res => {
+                                swal(`Poof! ${res.data.data.level} has been deleted!`, {
+                                    icon: 'success',
+                                });
+                                dataTable.ajax.reload();
+                            });
+                        } else {
+                            swal('Your imaginary file is safe!');
+                        }
+                    });
+                })
+
+            }
+
+            const btnEdit = (id) => {
+                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                    $('#addSubject').find('[name="id"]').val(res.data.data.id);
+                    $('#addSubject').find('[name="name"]').val(res.data.data.name);
+                    $('#addSubject').find('[name="description"]').val(res.data.data.description);
+                }).then(res => $('#addSubject').modal('show'))
+            }
+
+            const btnHistory = (id) => {
+                url = `<?php echo base_url(); ?>/api/settings/levelshistories?id_price_lm=${id}`;
+                dataTableHistory.ajax.url(url).load();
+                $('#modal-history').modal('show');
+            }
+
+            initDataTable();
+        </script>
+        <?php echo $this->endSection(); ?>

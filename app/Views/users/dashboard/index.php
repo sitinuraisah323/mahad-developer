@@ -79,101 +79,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 grid-margin stretch-card">
+                <div class="col-md-7 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">
                                 <i class="fas fa-table"></i>
-                                Sales Data
+                                Data Materi
                             </h4>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="table-1">
                                     <thead>
                                         <tr>
-                                            <th>Customer</th>
-                                            <th>Item code</th>
-                                            <th>Orders</th>
+                                            <th>Id</th>
+                                            <th>Nama Materi</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="font-weight-bold">
-                                                Clifford Wilson
-                                            </td>
-                                            <td class="text-muted">
-                                                PT613
-                                            </td>
-                                            <td>
-                                                350
-                                            </td>
-                                            <td>
-                                                <label class="badge badge-success badge-pill">Dispatched</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-weight-bold">
-                                                Mary Payne
-                                            </td>
-                                            <td class="text-muted">
-                                                ST456
-                                            </td>
-                                            <td>
-                                                520
-                                            </td>
-                                            <td>
-                                                <label class="badge badge-warning badge-pill">Processing</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-weight-bold">
-                                                Adelaide Blake
-                                            </td>
-                                            <td class="text-muted">
-                                                CS789
-                                            </td>
-                                            <td>
-                                                830
-                                            </td>
-                                            <td>
-                                                <label class="badge badge-danger badge-pill">Failed</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-weight-bold">
-                                                Adeline King
-                                            </td>
-                                            <td class="text-muted">
-                                                LP908
-                                            </td>
-                                            <td>
-                                                579
-                                            </td>
-                                            <td>
-                                                <label class="badge badge-primary badge-pill">Delivered</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-weight-bold">
-                                                Bertie Robbins
-                                            </td>
-                                            <td class="text-muted">
-                                                HF675
-                                            </td>
-                                            <td>
-                                                790
-                                            </td>
-                                            <td>
-                                                <label class="badge badge-info badge-pill">On Hold</label>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 grid-margin stretch-card">
+                <div class="col-md-5 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">
@@ -381,4 +310,808 @@
         </div>
         <!-- content-wrapper ends -->
 
+        <?php echo $this->endSection(); ?>
+        <?php echo $this->section('jslibraies') ?>
+  <script src="<?php echo base_url(); ?>/assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/modules/dashboard/index.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js">
+  </script>
+  <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/bundles/sweetalert/sweetalert.min.js"></script>
+  <!-- Add New Javascript -->
+
+
+  <script>
+    $('[name="month"]').on('change', function() {
+
+      console.log(month);
+    });
+
+    // const summary = () => {
+
+    var summary = document.getElementById('summary');
+    var month = $('#month').val();
+
+    var a = document.createElement("a");
+    a.setAttribute("class", "nav-link nav-link-lg ion-ios-reload");
+    a.setAttribute("href", `<?php echo base_url(); ?>/Generate/Summary/index/${month}`);
+    a.textContent = 'Download Summary';
+    summary.appendChild(a);
+
+    // var opt = document.createElement("span");
+    // // opt.value = item.id;
+    // opt.text = item.count;
+    // count.appendChild(opt);
+
+    // }
+    function convertToRupiah(angka) {
+      var rupiah = '';
+      var angkarev = angka.toString().split('').reverse().join('');
+      for (var i = 0; i < angkarev.length; i++)
+        if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+      return rupiah.split('', rupiah.length - 1).reverse().join('');
+    }
+
+
+    //CountOneobligor
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/countOneobligor`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+        console.log('oneobligorog', res.data.data);
+
+
+        var count = document.getElementById('countOneobligor');
+        count.textContent = convertToRupiah(res.data.data) + ' (Nasabah)';
+
+
+      }).catch(err => {
+      console.log(err)
+    })
+
+
+    //Grafik
+
+    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+      'Oktober',
+      'November', 'Desember'
+    ];
+
+    // OutstandingAll
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/outstandingAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+        if (data.length == 0) {
+
+          var viewOs = document.getElementById('viewOs');
+          viewOs.style.display = "none";
+
+        }
+
+        const awal = [];
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+            os = item.os;
+          } else {
+            noa = 0;
+            os = 0;
+          }
+
+          const a = awal.findIndex(f => {
+            return f.name == 'LTV';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "spline",
+            yValueFormatString: "#,### ",
+            xValueFormatString: "MMM",
+            name: "LTV",
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.os
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+        var count = document.getElementById('countOs');
+        document.getElementById("noaOs").innerHTML = convertToRupiah(noa);
+        count.textContent = 'Rp ' + convertToRupiah(os);
+
+
+        var chart = new CanvasJS.Chart("chartOutstandingAll", {
+          exportEnabled: true,
+          animationEnabled: true,
+          title: {
+            text: "Outstanding",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Jumlah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC"
+          },
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    // DPD
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/dpdAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+
+        if (data.length == 0) {
+
+          var viewDpd = document.getElementById('viewDpd');
+          viewDpd.style.display = "none";
+
+        }
+        const awal = [];
+
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+            os = item.os;
+          } else {
+            noa = 0;
+            os = 0;
+          }
+
+          const a = awal.findIndex(f => {
+            return f.name == 'DPD';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "line",
+            yValueFormatString: "#,### ",
+            xValueFormatString: "MMM",
+            name: "DPD",
+
+            // showInLegend: true,
+            // markerType: "square",
+            color: "#F08080",
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.os
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+
+        var count = document.getElementById('countDpd');
+        count.textContent = 'Rp ' + convertToRupiah(os);
+        document.getElementById("noaDpd").innerHTML = convertToRupiah(noa);
+
+
+        var chart = new CanvasJS.Chart("chartDpd", {
+          exportEnabled: true,
+          animationEnabled: true,
+          theme: "light2",
+          title: {
+            text: "DPD",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Jumlah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC",
+            crosshair: {
+              enabled: true
+            }
+          },
+          toolTip: {
+            shared: true
+          },
+          // legend:{
+          //     cursor:"pointer",
+          //     verticalAlign: "bottom",
+          //     horizontalAlign: "left",
+          //     dockInsidePlotArea: true,
+          //     itemclick: toogleDataSeries
+          // },
+
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    // Deviasi
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/deviasiAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+        if (data.length == 0) {
+
+          var viewDeviasi = document.getElementById('viewDeviasi');
+          viewDeviasi.style.display = "none";
+
+        }
+
+        const awal = [];
+
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+            os = item.os;
+          } else {
+            noa = 0;
+            os = 0;
+          }
+
+          const a = awal.findIndex(f => {
+            return f.name == 'LTV';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "line",
+            yValueFormatString: "#,### trx",
+            xValueFormatString: "MMM",
+            name: "LTV",
+            // color: "DarkGreen",
+
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.noa
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+        var count = document.getElementById('countDeviasi');
+        count.textContent = convertToRupiah(noa) + ' (x)';
+
+        var chart = new CanvasJS.Chart("chartDeviasi", {
+          exportEnabled: true,
+          animationEnabled: true,
+          theme: "light2",
+          title: {
+            text: "Deviasi",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Jumlah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC"
+          },
+
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    // Oneobligor
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/oneobligorAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+
+        const awal = [];
+
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+            os = item.os;
+          } else {
+            noa = 0;
+            os = 0;
+          }
+
+          const a = awal.findIndex(f => {
+            return f.name == 'LTV';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "spline",
+            yValueFormatString: "#,### trx",
+            xValueFormatString: "MMM",
+            name: "LTV",
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.noa
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+
+        var chart = new CanvasJS.Chart("chartOneobligor", {
+          exportEnabled: true,
+          animationEnabled: true,
+          title: {
+            text: "Oneobligor",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Nasabah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC"
+          },
+
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    // LTV
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/ltvAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+        // console.log(data.length);
+        if (data.length == 0) {
+
+          var viewLtv = document.getElementById('viewLtv');
+          viewLtv.style.display = "none";
+
+        }
+        const awal = [];
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+          } else {
+            noa = 0;
+          }
+
+          const a = awal.findIndex(f => {
+            return f.name == 'LTV';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "spline",
+            yValueFormatString: "#,### trx",
+            xValueFormatString: "MMM",
+            name: "LTV",
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.noa
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+
+
+
+
+        var count = document.getElementById('countLtv');
+        count.textContent = convertToRupiah(noa) + '(x)';
+
+        var chart = new CanvasJS.Chart("chartLtv", {
+          exportEnabled: true,
+          animationEnabled: true,
+          title: {
+            text: "LTV ",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Jumlah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC"
+          },
+
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    // Pembatalan
+    axios.get(`<?php echo base_url(); ?>/api/dashboard/batalAll`).then(
+      res => {
+        const {
+          data
+        } = res.data;
+
+        if (data.length == 0) {
+
+          var viewBatalan = document.getElementById('viewBatalan');
+          viewBatalan.style.display = "none";
+
+        }
+
+        const awal = [];
+
+
+        var noa = 0;
+        var os = 0;
+        data.forEach(item => {
+
+          date = new Date();
+          if (item.month == date.getMonth() + 1) {
+            noa = item.noa;
+          } else {
+            noa = 0;
+          }
+
+          // os = item.os;
+
+          const a = awal.findIndex(f => {
+            return f.name == 'Pembatalan';
+          });
+
+
+          const templateAwal = a > -1 ? awal[a] : {
+
+            type: "spline",
+            yValueFormatString: "#,### trx",
+            xValueFormatString: "MMM",
+            name: "Pembatalan",
+            color: "#F08080",
+            dataPoints: []
+          }
+
+          templateAwal.dataPoints.push({
+            label: months[item.month - 1],
+            y: +item.noa
+          });
+
+          if (a > -1) {
+            awal[a] = templateAwal;
+          } else {
+            awal.push(templateAwal);
+          }
+        });
+
+        document.getElementById("countBatal").innerHTML = convertToRupiah(noa) + ' (x)';
+
+        var chart = new CanvasJS.Chart("chartSelect", {
+          exportEnabled: true,
+          animationEnabled: true,
+          title: {
+            text: "Pembatalan ",
+            fontFamily: "arial black",
+            fontColor: "#695A42"
+          },
+          axisY: {
+            title: "Jumlah",
+            lineColor: "#4F81BC",
+            tickColor: "#4F81BC",
+            labelFontColor: "#4F81BC"
+          },
+
+
+          data: [...awal, ]
+        });
+
+
+        chart.render();
+      }).catch(err => {
+      console.log(err)
+    })
+
+    //Revenue
+    var options = {
+      chart: {
+        exportEnabled: true,
+        height: 230,
+        type: "line",
+        shadow: {
+          enabled: true,
+          color: "#000",
+          top: 18,
+          left: 7,
+          blur: 10,
+          opacity: 1
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      colors: ["#3dc7be", "#ffa117"],
+      dataLabels: {
+        enabled: true
+      },
+      stroke: {
+        curve: "smooth"
+      },
+      series: [{
+          name: "High - 2019",
+          data: [5, 15, 14, 36, 32, 32]
+        },
+        //   {
+        //     name: "Low - 2019",
+        //     data: [7, 11, 30, 18, 25, 13]
+        //   }
+      ],
+      grid: {
+        borderColor: "#e7e7e7",
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.0
+        }
+      },
+      markers: {
+        size: 6
+      },
+      xaxis: {
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+        labels: {
+          style: {
+            colors: "#9aa0ac"
+          }
+        }
+      },
+      yaxis: {
+        title: {
+          text: "Income"
+        },
+        labels: {
+          style: {
+            color: "#9aa0ac"
+          }
+        },
+        min: 5,
+        max: 40
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        floating: true,
+        offsetY: -25,
+        offsetX: -5
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#revenue"), options);
+
+    chart.render();
+  </script>
+
+  <?php echo $this->endSection(); ?>
+  <?php echo $this->section('jslibraies') ?>
+        <script src="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>/assets/js/page/datatables.js"></script> -->
+        <script src="<?php echo base_url(); ?>/assets/bundles/sweetalert/sweetalert.min.js"></script>
+        <!-- Page Specific JS File -->
+
+        <script src="<?php echo base_url(); ?>/assets/js/page/sweetalert.js"></script>
+
+        <script type="text/javascript">
+            var dataTable;
+            const formClear = () => {
+                $('#addSubject').find('[name="id"]').val('');
+                $('#addSubject').find('[name="name"]').val('');
+                $('#addSubject').find('[name="description"]').val('');
+            }
+            const openModal = () => {
+                formClear();
+
+                $('#addSubject').modal('show');
+            }
+
+            $('#upload-file').on('change', function(event) {
+                $('#addSubject').find('.btn-save').addClass('d-none');
+                let file = event.target.files[0];
+                let formData = new FormData();
+                formData.append('file', file);
+                axios.post(`<?php echo base_url(); ?>/api/filedrives/upload`, formData).then(res => {
+                    let id = res.data.data.id;
+                    $('#id_file_drive').val(id);
+                }).then(res => {
+                    $('#addSubject').find('.btn-save').removeClass('d-none');
+                })
+            });
+
+            const submitform = (event) => {
+                event.preventDefault();
+                let formData = new FormData(event.target);
+                let id = $('#addSubject').find('[name="id"]').val();
+                if (id === '') {
+                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/insert`, formData).then(res => {
+                        let status = res.data.status;
+                        let data = res.data.data;
+                        if (status === 422) {
+                            let message = Object.values(data)[0];
+                            swal('Validasi Inputan', message, 'error');
+                            return;
+                        }
+                        formClear();
+                        dataTable.ajax.reload();
+                        $('#addSubject').modal('hide');
+                    });
+                } else {
+                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/updated`, formData).then(res => {
+                        let status = res.data.status;
+                        let data = res.data.data;
+                        if (status === 422) {
+                            let message = Object.values(data)[0];
+                            swal('Validasi Inputan', message, 'error');
+                            return;
+                        }
+                        formClear();
+                        dataTable.ajax.reload();
+                        $('#addSubject').modal('hide');
+                    });
+                }
+            }
+
+            const initDataTable = () => {
+                dataTable = $('#table-1').DataTable({
+                    ajax: {
+                        url: `<?php echo base_url(); ?>/api/subject/subject`,
+                        dataFilter: function(data) {
+                            var json = jQuery.parseJSON(data);
+                            json.recordsTotal = json.message.totalRecord;
+                            json.recordsFiltered = json.message.totalRecord;
+                            json.data = json.data;
+                            return JSON.stringify(json); // return JSON string
+                        },
+                    },
+                    columns: [{
+                            data: "id"
+                        },
+                        {
+                            data: "name"
+                        },
+                        {
+                            data: "status"
+                        }
+                    ],
+                });
+            }
+
+            const btnDelete = (id) => {
+                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                    swal({
+                        title: 'Are you sure?',
+                        text: `Once deleted, you will not be able to recover ${res.data.data.level}!`,
+                        icon: 'warning',
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                        if (willDelete) {
+                            axios.get(`<?php echo base_url(); ?>/api/subject/subject/deleted/${id}`).then(res => {
+                                swal(`Poof! ${res.data.data.level} has been deleted!`, {
+                                    icon: 'success',
+                                });
+                                dataTable.ajax.reload();
+                            });
+                        } else {
+                            swal('Your imaginary file is safe!');
+                        }
+                    });
+                })
+
+            }
+
+            const btnEdit = (id) => {
+                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                    $('#addSubject').find('[name="id"]').val(res.data.data.id);
+                    $('#addSubject').find('[name="name"]').val(res.data.data.name);
+                    $('#addSubject').find('[name="description"]').val(res.data.data.description);
+                }).then(res => $('#addSubject').modal('show'))
+            }
+
+            const btnHistory = (id) => {
+                url = `<?php echo base_url(); ?>/api/settings/levelshistories?id_price_lm=${id}`;
+                dataTableHistory.ajax.url(url).load();
+                $('#modal-history').modal('show');
+            }
+
+            initDataTable();
+        </script>
         <?php echo $this->endSection(); ?>

@@ -170,28 +170,10 @@
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/morris.html">Morris</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/flot-chart.html">Flot</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/google-charts.html">Google charts</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/sparkline.html">Sparkline js</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/c3.html">C3 charts</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartist.html">Chartists</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/justGage.html">JustGage</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="fas fa-table menu-icon"></i>
-              <span class="menu-title">Tables</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('/data-mahasiswa') ?>">Data Mahasiswa</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('/data-guru') ?>">Data Guru</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Guru</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/morris.html">Siswa</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/flot-chart.html">Materi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/google-charts.html">Penilaian</a></li>
               </ul>
             </div>
           </li>

@@ -10,13 +10,10 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
-                <h3 class="page-title">
-                    Data Utadz & Ustadzah
-                </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Personal</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Jadwal Pembelajaran</li>
+                        <li class="breadcrumb-item"><a href="#">Data Umum</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">List Guru</li>
                     </ol>
                 </nav>
             </div>

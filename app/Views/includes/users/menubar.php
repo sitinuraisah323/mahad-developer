@@ -15,7 +15,7 @@
                         Media Visual
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('subject/audio_visual') ?>">
                         <i class="mdi mdi-database mr-2 text-primary"></i>
                         Media Audio Visual
                     </a>

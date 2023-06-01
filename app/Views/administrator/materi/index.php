@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-form-label">Description:</label>
-                            <textarea class="form-control" name="description" id="description" required></textarea>
+                            <textarea class="form-control" rows="10" name="description" id="description" required></textarea>
                         </div>
 
                     </div>
