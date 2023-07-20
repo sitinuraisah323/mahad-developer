@@ -192,8 +192,8 @@ class Auth extends BaseApiController
         $user = $this->model
             ->select('users.*, levels.level')
 			->join('levels','levels.id = users.id_level','left')
-			// ->select('cabang.cabang as cabang_name, cabang.branch_id')
-			// ->join('cabang','cabang.id = users.id_cabang','left')
+			->select('visitors.*')
+			->join('visitors','visitors.id = users.id_visitor','left')
             ->where('username', $username)->first();
             // var_dump($user);exit;
 

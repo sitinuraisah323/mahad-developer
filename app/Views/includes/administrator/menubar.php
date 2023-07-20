@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+            <a class="nav-link dropdown-toggle" href="<?php echo base_url('profil') ?>" data-toggle="dropdown" id="profileDropdown">
               <img src="<?= base_url(); ?>/assets/images/faces/users2.png" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
