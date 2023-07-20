@@ -42,6 +42,12 @@ class Profil extends Authenticated
 		return view('profil/index');
 	}
 
+    public function user()
+	{
+        
+		return view('users/profil');
+	}
+
 	
 }
 

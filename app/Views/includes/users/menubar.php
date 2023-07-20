@@ -54,7 +54,7 @@
                         Penilaian
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('profil/user') ?>">
                         <i class="fa fa-user mr-2 text-primary"></i>
                         Profil
                     </a>
@@ -84,7 +84,7 @@
                 </div>
             </li>
             <li class="nav-item nav-profile">
-                <a class="nav-link">
+                <a class="nav-link" href="<?php echo base_url('profil/user'); ?>">
                     <div class="nav-profile-text">
                         <?= session('user.username'); ?>
                     </div>

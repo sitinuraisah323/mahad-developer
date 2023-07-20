@@ -153,11 +153,16 @@ class Users extends BaseApiController
                         ->where('level_id', $user->level_id)->findAll();
         //$modelLevel = new \App\Models\Setting\Level();
         $role = (new \App\Models\Setting\Level())->find($user->level_id);
+        $data = $this->model
+                ->select('visitors.*')
+                ->join('levels', 'levels.id=users.id_level')
+                ->join('visitors', 'visitors.id=users.id_visitor')
+                ->where('users.id' ,$user->id)->first();
         // //SET SESSION
         session()->set(array(
             'privileges'=> $privileges,
             'role'      => $role,
-            'user'      => $user,
+            'user'      => $data,
             'logged_in' => true,
         ));
 
