@@ -67,10 +67,10 @@
     </script>
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
-    <script src="<?= base_url(); ?>/assets/js/off-canvas.js"></script>
+    <!-- <script src="<?= base_url(); ?>/assets/js/off-canvas.js"></script> -->
     <script src="<?= base_url(); ?>/assets/js/dashboard.js"></script>
     <!-- Add Canvas.js -->
-    <script src="<?php echo base_url(); ?>/assets/canvas/canvasjs.min.js" type="text/javascript"></script>
+    <!-- <script src="<?php echo base_url(); ?>/assets/canvas/canvasjs.min.js" type="text/javascript"></script> -->
     <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>

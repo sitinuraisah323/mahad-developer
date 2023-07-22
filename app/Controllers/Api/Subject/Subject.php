@@ -39,7 +39,7 @@ class Subject extends BaseApiController
     //        'column'    => 'value'
     //    ]
     public $fillWhere = [
-        // 'name'              => 'name',
+        'id'              => 'id',
     ];
 
     //    [
@@ -111,4 +111,5 @@ class Subject extends BaseApiController
     public $content = 'Setting Subjects';
     //--------------------------------------------------------------------
 
+    
 }

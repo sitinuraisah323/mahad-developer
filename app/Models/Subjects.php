@@ -26,4 +26,8 @@ class Subjects extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    function getSubject(){
+        return $this->select('id, name')->findAll();
+    }
 }

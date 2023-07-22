@@ -49,7 +49,7 @@
                     Personal
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="actions-dropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('evaluations/users') ?>">
                         <i class="mdi mdi-launch mr-2 text-primary"></i>
                         Penilaian
                     </a>
