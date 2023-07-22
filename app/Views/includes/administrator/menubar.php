@@ -156,8 +156,13 @@
             </a>
             <div class="collapse" id="editors">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/text_editor.html">Language</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/code_editor.html">Agama</a></li>
+                <?php 
+                if ( session('subject')) {
+                  foreach(session('subject') as $data){ ?>
+                <li class="nav-item"><a class="nav-link" href="<?php echo base_url("evaluations/show/$data->id") ?>"><?php echo $data->name; ?></a></li>
+                <?php } }else{ ?>
+                <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                <?php }?>
               </ul>
             </div>
           </li>

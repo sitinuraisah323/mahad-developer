@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Middleware\Authenticated;
 use App\Models\Area;
+use App\Models\Subjects;
 use App\Models\MonitoringOsView;
 use App\Models\Notifications as ModelsNotifications;
 use App\Models\pawn_transactionsModel;
@@ -38,7 +39,10 @@ class Dashboard extends Authenticated
 	
 	public function index()
 	{
-		return view('dashboard/index');
+        $subject = new Subjects();
+        $data['subject'] = $subject->getSubject();
+        
+		return view('dashboard/index', $data);
 	}
 
     public function users()

@@ -56,6 +56,103 @@
                   <div class="d-flex">
                     <div class="progress progress-md flex-grow">
                       <div class="progress-bar bg-success" role="progressbar" aria-valuenow="75" style="width: 100%" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Profile
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Sample Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profile</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="border-bottom text-center pb-4">
+                        <img src="<?= base_url(); ?>/assets/images/faces/users2.png" alt="profile" class="img-lg rounded-circle mb-3"/>
+                        <h3>
+                          
+                        </h3>
+                        <!-- <p>Bureau Oberhaeuser is a design bureau focused on Information- and Interface Design. </p> -->
+                        <div class="d-flex justify-content-between">
+                          <button class="btn btn-success">Hire Me</button>
+                          <h3><?= session('user.username'); ?></h3>
+                          <button class="btn btn-success">Follow</button>
+                        </div>
+                      </div>
+                      <div class="border-bottom py-4">
+                        <p>Kelas</p>
+                        <div>
+                          <label class="badge badge-outline-dark">Chalk</label>
+                          <label class="badge badge-outline-dark">Hand lettering</label>
+                          <label class="badge badge-outline-dark">Information Design</label>
+                          <label class="badge badge-outline-dark">Graphic Design</label>
+                          <label class="badge badge-outline-dark">Web Design</label>  
+                        </div>                                                               
+                      </div>
+                      <div class="border-bottom py-4">
+                        <div class="d-flex mb-3">
+                          <div class="progress progress-md flex-grow">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div class="progress progress-md flex-grow">
+                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="py-4">
+                        <p class="clearfix">
+                          <span class="float-left">
+                            Nama
+                          </span>
+                          <span class="float-right text-muted">
+                            <?= session('user.name');?>
+                          </span>
+                        </p>
+                        <p class="clearfix">
+                          <span class="float-left">
+                            Status
+                          </span>
+                          <span class="float-right text-muted">
+                            <?= session('user.level');?>
+                          </span>
+                        </p>
+                        <p class="clearfix">
+                          <span class="float-left">
+                            Jenis Kelamin
+                          </span>
+                          <span class="float-right text-muted">
+                            <?= session('user.gender'); ?>
+                          </span>
+                        </p>
+                        <p class="clearfix">
+                          <span class="float-left">
+                            Email
+                          </span>
+                          <span class="float-right text-muted">
+                            <?= session('user.email'); ?>
+                          </span>
+                        </p>
+                        <p class="clearfix">
+                          <span class="float-left">
+                            Alamat
+                          </span>
+                          <span class="float-right text-muted">
+                            <?= session('user.address'); ?>
+                          </span>
+                        </p>
+                        
+                      </div>
+                      <!-- <button class="btn btn-primary btn-block">Preview</button> -->
                     </div>
                   </div>
                 </div>

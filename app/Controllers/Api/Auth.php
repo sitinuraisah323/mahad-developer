@@ -1,6 +1,6 @@
 <?php namespace App\Controllers\Api;
 use App\Controllers\Api\BaseApiController;
-use App\Models\Notifications;
+use App\Models\Subjects;
 
 /**
  * Class Users
@@ -211,11 +211,17 @@ class Auth extends BaseApiController
             ->join('menus','menus.id = levels_privileges.id_menu')
             ->where('id_level', $user['id_level'])->findAll();
 
+        // $subject = (new App\Models\Subjects())
+        //     ->select('subjects.*')->findAll();
+
+        $subject = new Subjects();
+        $data = $subject->getSubject();
+
         session()->set(array(
             'user'  => $user,
             'logged_in' => true,
             'privileges'    => $privileges,
-            // 'notifications' => $notifications,
+            'subject' => $data,
         ));
         return $this->sendResponse([
             'user'  => $user
