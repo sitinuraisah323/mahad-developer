@@ -1,5 +1,4 @@
-<?php echo $this->extend('layouts/administrator'); ?>
-
+<?php echo $this->extend('layouts/users'); ?>
 <?php echo $this->section('csslibraies') ?>
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
@@ -20,40 +19,56 @@
       </nav>
     </div>
 
-    <div class="col-lg-12 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <h4 class="card-title">Nilai List</h4>
-            </div>
-            <div class="col-lg-6 d-flex justify-content-end">
-              <button type="button" class="btn btn-inverse-info btn-fw" data-toggle="modal" data-target="#addRole" data-whatever="@fat">
-                <i class="fa fa-plus"></i> Buat Baru
-              </button>
-            </div>
-          </div>
+    <div class="col-12 grid-margin stretch-card d-none d-md-flex">
+              <div class="card">
+                <div class="card-body">
 
-          <div class="table-responsive">
-            <!-- <input type='hidden' name='id_subject' id ="id_subject" value="<?php// echo $id_subject; ?>" /> -->
-            <table class="table table-hover" id="table-1">
-              <thead>
-                <tr>
-                  <th>#Id</th>
-                  <th>Materi</th>
-                  <th>Nama Siswa</th>
-                  <th>Nilai</th>
-                  <th>Deskripsi</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+                  <h4 class="card-title">
+                    <div class="row">
+                    <div class="col-10">Data Nilai</div>
+                    <div class="col-sm-2 col-md-2 col-lg-2"><a href=''><i class="fa fa-download"></i> Sertifikat</a></div></h4>
+                  
+                  <div class="row">
+                    <div class="col-3">
+                      <ul class="nav nav-tabs nav-tabs-vertical-custom" role="tablist">
+                        <?php foreach ($subject as $index => $tab): ?>
+                          <li class="nav-item">
+                              <a class="nav-link <?php echo $index === 0 ? 'active' : ''; ?>" data-toggle="tab" href="#tab_<?php echo $tab->id; ?>" role="tab"><?php echo $tab->name; ?></a>
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
+                      
+                    </div>
+                    <div class="col-9 col-lg-9">
+                      <div class="tab-content">
+                        <?php foreach ($subject as $index => $tab): ?>
+                          <div class="tab-pane <?php echo $index === 0 ? 'active' : ''; ?>" id="tab_<?php echo $tab->id; ?>" role="tabpanel">
+                            <table id="datatable_<?php echo $tab->id; ?>" class="table">
+                              <thead>
+                                <tr>
+                                  <th>#Id</th>
+                                  <th>Materi</th>
+                                  <th>Nama Siswa</th>
+                                  <th>Nilai</th>
+                                  <th>Deskripsi</th>
+                                  <!-- <th>Action</th> -->
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                              </tbody>
+                            </table>
+                          </div>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    
 
     <!-- Add data -->
 
@@ -132,20 +147,20 @@
       }
     );
 
-    var subject = document.getElementById('subject');
+    // var subject = document.getElementById('subject');
 
-    let id_subject = $('#id_subject').val();
-    axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id_subject}`).then(
-      res => {
-        const {
-          data
-        } = res.data;
-          subject.value = res.data.data.name;
-          subject.text = res.data.data.name;
-          ids.value = res.data.data.name;
+    // let id_subject = $('#id_subject').val();
+    // axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id_subject}`).then(
+    //   res => {
+    //     const {
+    //       data
+    //     } = res.data;
+    //       subject.value = res.data.data.name;
+    //       subject.text = res.data.data.name;
+    //       ids.value = res.data.data.name;
 
-      }
-    );
+    //   }
+    // );
 
       const formClear = () => {
         $('#addRole').find('[name="id"]').val('');
@@ -207,13 +222,16 @@
         }
       }
 
-      const initDataTable = () => {
-        let id_subject = $('#id_subject').val();
-        console.log(id_subject);
-        dataTable = $('#table-1').DataTable({
+    let no = 0;
+
+    // foreach(data)
+      const initDataTable = (tableId, id_subject) => {
+        // let id_subject = $('#id_subject').val();
+        // console.log(id_subject);
+        dataTable = $('#' + tableId).DataTable({
           ordering: true,
           retrieve: true,
-          dom: 'Bfrtip',
+          // dom: 'Bfrtip',
           pageLength: 25,
           destroy: true,
           bDestroy: true,
@@ -245,12 +263,12 @@
             {
               data: "descript"
             },
-            {
-              data: function(data) {
-                return ` <button  onclick="btnEdit(${data.ids})" class="btn btn-info btn-edit">Edit</button>
-                                      <button  onclick="btnDelete(${data.ids})" class="btn btn-danger btn-delete">Delete</button>`;
-              }
-            }
+            // {
+            //   data: function(data) {
+            //     return ` <button  onclick="btnEdit(${data.ids})" class="btn btn-info btn-edit">Edit</button>
+            //                           <button  onclick="btnDelete(${data.ids})" class="btn btn-danger btn-delete">Delete</button>`;
+            //   }
+            // }
           ],
         });
       }
@@ -295,6 +313,17 @@
       //   $('#modal-history').modal('show');
       // }
 
-      initDataTable();
+      axios.post(`<?php echo base_url(); ?>/api/subject/subject`).then(res => {
+        let status = res.data.status;
+        let data = res.data.data;
+        console.log('subject',data[no].id)
+
+        data.forEach((elemen, index, array)=>{
+          tableId = 'datatable_' + elemen.id;
+          initDataTable(tableId, elemen.id);
+        });
+      });
+            
+            
     </script>
     <?php echo $this->endSection(); ?>

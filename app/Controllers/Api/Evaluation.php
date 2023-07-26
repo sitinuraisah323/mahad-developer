@@ -76,11 +76,15 @@ class Evaluation extends BaseApiController
             $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
             $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
 
-            $data = $this->model->select('*,evaluations.id as ids,evaluations.description as descript, visitors.name as fullname, subject.name as subject' )
+            $this->model->select('*,evaluations.id as ids,evaluations.description as descript, visitors.name as fullname, subject.name as subject' )
                                 ->join('subject', 'subject.id=evaluations.id_subject')
                                 ->join('users', 'users.id=evaluations.id_user')
                                 ->join('visitors', 'visitors.id=users.id_visitor')
-                                ->where('id_subject', $id_subject)->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+                                ->where('id_subject', $id_subject);
+            if(session('user.level') == 'Murid'){
+             $this->model->where('users.id', session('user.id_user'));
+            } 
+            $data = $this->model->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
             $this->where();
             $totalRecord = $this->model->countAllResults();
             if(method_exists($this,'afterIndex')){

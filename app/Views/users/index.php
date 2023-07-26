@@ -185,7 +185,7 @@
             processing: true,
 			  serverSide: false,
           ajax: {
-            url: `<?php echo base_url(); ?>/api/users`,
+            url: `<?php echo base_url(); ?>/api/users/getusers`,
             dataFilter: function(data) {
               var json = jQuery.parseJSON(data);
               json.recordsTotal = json.message.totalRecord;
@@ -195,7 +195,7 @@
             },
           },
           columns: [{
-              data: "id"
+              data: "ids"
             },
             {
               data: "username"
@@ -204,16 +204,16 @@
               data: "email"
             },
             {
-              data: "id_level",
-                render: function ( data, type, row ) { 
-                  if (data == 1) {
-                    return 'Administrator';
-                  }else if(data==2){
-                    return "Guru";
-                  }else{
-                    return "Siswa";
-                  }      
-              }
+              data: "level"
+                // render: function ( data, type, row ) { 
+                //   if (data == 1) {
+                //     return 'Administrator';
+                //   }else if(data==2){
+                //     return "Guru";
+                //   }else{
+                //     return "Siswa";
+                //   }      
+              // }
             },
             {
               data: function(data) {

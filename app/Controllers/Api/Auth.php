@@ -190,7 +190,7 @@ class Auth extends BaseApiController
         }
         $username = $this->request->getPost('username');
         $user = $this->model
-            ->select('users.*, levels.level')
+            ->select('users.*, levels.level, users.id as id_user')
 			->join('levels','levels.id = users.id_level','left')
 			->select('visitors.*')
 			->join('visitors','visitors.id = users.id_visitor','left')

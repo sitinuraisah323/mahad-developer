@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Middleware\Authenticated;
 use App\Models\Area;
 use App\Models\Evaluation;
-use App\Models\MonitoringOsView;
+use App\Models\Subjects;
 use App\Models\Notifications as ModelsNotifications;
 use App\Models\pawn_transactionsModel;
 use Prophecy\Doubler\ClassPatch\DisableConstructorPatch;
@@ -46,7 +46,10 @@ class Evaluations extends Authenticated
 
     public function users()
 	{
-        return view('users/evaluation/index');
+        $subject = new Subjects();
+        $data['subject'] = $subject->getSubject();
+        
+        return view('users/evaluation/index', $data);
     }
 	
 	

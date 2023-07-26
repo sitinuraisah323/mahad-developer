@@ -116,7 +116,7 @@
       // Get Data level
     var siswa = document.getElementById('id_user');
 
-    axios.get(`<?php echo base_url(); ?>/api/visitors/student`).then(
+    axios.get(`<?php echo base_url(); ?>/api/users/userstudent`).then(
       res => {
         const {
           data
@@ -124,8 +124,8 @@
 
         data.forEach(item => {
           var opt = document.createElement("option");
-          opt.value = item.id;
-          opt.text = item.name;
+          opt.value = item.ids;
+          opt.text = item.username;
           siswa.appendChild(opt);
 
         })
@@ -149,7 +149,9 @@
 
       const formClear = () => {
         $('#addRole').find('[name="id"]').val('');
-        $('#addRole').find('[name="level"]').val('');
+        $('#addRole').find('[name="id_subject"]').val('');
+        $('#addRole').find('[name="id_user"]').val('');
+        $('#addRole').find('[name="score"]').val('');
         $('#addRole').find('[name="description"]').val('');
       }
       const openModal = () => {

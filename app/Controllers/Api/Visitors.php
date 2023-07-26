@@ -76,7 +76,7 @@ class Visitors extends BaseApiController
             $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
             $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
 
-            $data = $this->model->join('levels','levels.id=visitors.id_level')->where('level', 'Murid')->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+            $data = $this->model->join('levels','levels.id=visitors.id_level')->join('users','users.id_visitor=visitors.id')->where('level', 'Murid')->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
             $this->where();
             $totalRecord = $this->model->countAllResults();
             if(method_exists($this,'afterIndex')){
