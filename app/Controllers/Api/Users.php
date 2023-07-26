@@ -73,6 +73,32 @@ class Users extends BaseApiController
     public $content = 'Master Users';
     //--------------------------------------------------------------------
 
+    public function getusers()
+    {
+        // echo 'Yes'; exit;
+        if(is_null(session()->get('logged_in'))){            
+            return $this->sendResponse('No Autheticated',403,'No Autheticated');
+            die;
+        }
+        if($this->model){
+            $this->where();
+            
+            $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
+            $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
+
+            $data = $this->model->select('*, users.id as ids')->join('levels','levels.id=users.id_level')->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+            $this->where();
+            $totalRecord = $this->model->countAllResults();
+            if(method_exists($this,'afterIndex')){
+                $data = $this->afterIndex($data);
+            }
+            return $this->sendResponse($data,201,[
+                'totalRecord' => $totalRecord,
+            ]);
+        }
+        return $this->sendResponse('Model Not Found',201,'Model Not Found '.$this->model);
+
+    }
     public function insert(){
         $this->validate([
             'id_level' => [
@@ -134,11 +160,32 @@ class Users extends BaseApiController
             return $this->sendResponse($this->model->find($this->model->getInsertID()),201,'Successfully insert post user');
     }
 
-    public function getusers(){
-        $dataList = $this->model->select('oauth_users.id,oauth_users.fullname,oauth_users.email,oauth_users.contact,oauth_users.level_id,oauth_levels.level')
-                                ->join('oauth_levels','oauth_levels.id=oauth_users.level_id')
-                                ->findAll();
-        return $this->sendResponse($dataList);
+
+    public function userstudent()
+    {
+        // echo 'Yes'; exit;
+        if(is_null(session()->get('logged_in'))){            
+            return $this->sendResponse('No Autheticated',403,'No Autheticated');
+            die;
+        }
+        if($this->model){
+            $this->where();
+            
+            $start = $this->request->getGet('start') ? $this->request->getGet('start') : 0;
+            $length = $this->request->getGet('length') ? $this->request->getGet('length') : 10;
+
+            $data = $this->model->select('*, users.id as ids')->join('levels','levels.id=users.id_level')->where('level', 'Murid')->orderBy($this->model->table.'.id','desc')->findAll($length, $start);
+            $this->where();
+            $totalRecord = $this->model->countAllResults();
+            if(method_exists($this,'afterIndex')){
+                $data = $this->afterIndex($data);
+            }
+            return $this->sendResponse($data,201,[
+                'totalRecord' => $totalRecord,
+            ]);
+        }
+        return $this->sendResponse('Model Not Found',201,'Model Not Found '.$this->model);
+
     }
 
     public function login_verify()
