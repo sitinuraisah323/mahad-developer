@@ -81,8 +81,6 @@ class Days extends BaseApiController
     //    ]
     public $fillableInsert = [
         'name'              => 'name',
-        'startdate'         => 'startdate',
-        'enddate'           => 'enddate'
     ];
 
     /**
@@ -97,8 +95,6 @@ class Days extends BaseApiController
 
     public $fillableIupdate = [
         'name'              => 'name',
-        'startdate'         => 'startdate',
-        'enddate'           => 'enddate'
     ];
 
     //    product

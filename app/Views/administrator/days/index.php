@@ -40,8 +40,6 @@
                                 <tr>
                                     <th>#Id</th>
                                     <th>Name</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -75,14 +73,6 @@
                             <label for="description" class="col-form-label">Description:</label>
                             <textarea class="form-control" name="description" id="description" required></textarea>
                         </div> -->
-                        <div class="form-group">
-                            <label for="description" class="col-form-label">Start Date:</label>
-                            <input type="time" class="form-control" name="startdate" id="startdate" required autofocus>
-                        </div>
-                        <div class="form-group">
-                            <label for="description" class="col-form-label">End Date:</label>
-                            <input type="time" class="form-control" name="enddate" id="enddate" required autofocus>
-                        </div>
 
                     </div>
                     <div class="modal-footer">
@@ -110,8 +100,6 @@
             const formClear = () => {
                 $('#addSubject').find('[name="id"]').val('');
                 $('#addSubject').find('[name="name"]').val('');
-                $('#addSubject').find('[name="startdate"]').val('');
-                $('#addSubject').find('[name="enddate"]').val('');
             }
             const openModal = () => {
                 formClear();
@@ -190,12 +178,6 @@
                         },
                         {
                             data: "name"
-                        },
-                        {
-                            data: "startdate"
-                        },
-                        {
-                            data: "enddate"
                         },
                         {
                             data: function(data) {

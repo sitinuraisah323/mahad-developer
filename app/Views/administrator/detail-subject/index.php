@@ -43,7 +43,7 @@
                             <thead>
                                 <tr>
                                     <th>#Id</th>
-                                    <th>Name</th>
+                                    <th>Materi</th>
                                     <th>Pemateri</th>
                                     <th>Action</th>
                                 </tr>
@@ -72,18 +72,20 @@
                         <input type="hidden" name="id" value="">
                         <div class="form-group">
                             <label>Judul Materi</label>
-                            <select type="text" id='id_level' name="id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                            <select type="text" id='id_materi' name="id_materi" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                                 <option value="">-- Pilih materi --</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" required autofocus>
+                            <label for="name" class="col-form-label">Pemateri</label>
+                            <select type="text" id='id_guru' name="id_guru" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                                <option value="">-- Pilih materi --</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-form-label">Description:</label>
-                            <textarea class="form-control" name="description" id="description" required></textarea>
+                            <textarea class="form-control" id="exampleTextarea1" rows="5"></textarea>
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -212,7 +214,7 @@
             }
 
             // Get Data level
-            var subject = document.getElementById('id_level');
+            var materi = document.getElementById('id_materi');
 
             axios.get(`<?php echo base_url(); ?>/api/subject/subject`).then(
                 res => {
@@ -224,10 +226,32 @@
                         var opt = document.createElement("option");
                         opt.value = item.id;
                         opt.text = item.name;
-                        subject.appendChild(opt);
+                        materi.appendChild(opt);
 
                     })
-                });
+                }
+            );
+
+            // Get Data level
+            var guru = document.getElementById('id_guru');
+
+            axios.get(`<?php echo base_url(); ?>/api/Visitors/teacher`).then(
+                res => {
+                    const {
+                        data
+                    } = res.data;
+
+                    data.forEach(item => {
+                        var opt = document.createElement("option");
+                        opt.value = item.id;
+                        opt.text = item.name;
+                        guru.appendChild(opt);
+
+                    })
+                }
+            );
+
+
 
             const btnDelete = (id) => {
                 axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
