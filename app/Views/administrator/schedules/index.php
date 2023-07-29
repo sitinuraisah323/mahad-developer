@@ -181,7 +181,7 @@
                     processing: true,
                     serverSide: false,
                     ajax: {
-                        url: `<?php echo base_url(); ?>/api/schedules/schedules`,
+                        url: `<?php echo base_url(); ?>/api/schedules/Schedules/getSchedules`,
                         dataFilter: function(data) {
                             var json = jQuery.parseJSON(data);
                             json.recordsTotal = json.message.totalRecord;
@@ -194,10 +194,10 @@
                             data: "id"
                         },
                         {
-                            data: "id_days"
+                            data: "days"
                         },
                         {
-                            data: "id_subject"
+                            data: "materi"
                         },
                         {
                             data: "startdate"

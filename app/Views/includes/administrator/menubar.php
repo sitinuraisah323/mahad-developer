@@ -125,8 +125,6 @@
 
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datamaster/student') ?>">Siswa</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datamaster/teacher') ?>">Guru</a></li>
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Materi</a></li>
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Bobot Penilaian</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('Days') ?>">Days</a></li>
               </ul>
             </div>
