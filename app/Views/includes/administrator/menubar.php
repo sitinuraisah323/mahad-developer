@@ -1,11 +1,11 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" />
-          <a style="font-weight: bold; color:#392C70;">
+        <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:40px; height:40px;" alt="logo" />
+          <a style="font-weight: bold; color:#000000;">
             E-Learning
           </a></span>
-        <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/masjid.png" style="width:40px; height:40px;" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:40px; height:40px;" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -108,8 +108,7 @@
             </a>
             <div class="collapse" id="ui-advanced">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('settings/levels');?>">Role</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/clipboard.html">Menu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('settings/levels');?>">Level</a></li>
                 <li class="nav-item"> <a class="nav-link" href=<?php echo base_url('datamaster/users') ?>>Users</a></li>
               </ul>
             </div>

@@ -15,7 +15,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Tables</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data Role</li>
+          <li class="breadcrumb-item active" aria-current="page">Data Level</li>
         </ol>
       </nav>
     </div>
@@ -25,7 +25,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-lg-6">
-              <h4 class="card-title">Role List</h4>
+              <h4 class="card-title">Level List</h4>
             </div>
             <div class="col-lg-6 d-flex justify-content-end">
               <button type="button" class="btn btn-inverse-info btn-fw" data-toggle="modal" data-target="#addRole" data-whatever="@fat">
@@ -39,8 +39,8 @@
               <thead>
                 <tr>
                   <th>#Id</th>
-                  <th>Role Name</th>
-                  <th>Action</th>
+                  <th>Nama Level</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
