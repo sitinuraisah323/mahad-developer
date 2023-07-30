@@ -11,7 +11,7 @@ use CodeIgniter\Database\Postgre\Connection;
 
 
 // use  CodeIgniter\Database\BaseConnection();
-class Profil extends Authenticated
+class Pengumuman extends Authenticated
 {
 
 	//  private $db1;
@@ -36,16 +36,9 @@ class Profil extends Authenticated
     }
 	
 	
-	public function admin()
+	public function index()
 	{
-        
-		return view('administrator/profil/index');
-	}
-
-    public function user()
-	{
-        
-		return view('users/profil');
+		return view('administrator/pengumuman/index');
 	}
 
 	

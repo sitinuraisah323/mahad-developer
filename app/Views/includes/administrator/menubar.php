@@ -182,7 +182,14 @@
           </li> -->
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('profil/user') ?>">
+            <a class="nav-link" href="<?php echo base_url('Pengumuman') ?>">
+              <i class="fa fa-info-circle menu-icon"></i>
+              <span class="menu-title">Pengumuman</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('Profil/admin') ?>">
               <i class="fa fa-user menu-icon"></i>
               <span class="menu-title">Profil</span>
             </a>
