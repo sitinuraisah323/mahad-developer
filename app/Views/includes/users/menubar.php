@@ -28,9 +28,9 @@
                     Data Umun
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="employees-dropdown">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="<?php echo base_url('information') ?>">
                         <i class="mdi mdi-monitor-multiple mr-2 text-primary"></i>
-                        Struktur Ma'had Al-Jami'ah
+                        Pengumuman
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?php echo base_url('dataumum/guru') ?>">
