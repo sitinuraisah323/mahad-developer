@@ -9,4 +9,9 @@ class Subject extends Authenticated
 	{
 		return view('users/subject/index');
 	}
+	
+	public function detail()
+	{
+		return view('users/subject/detail');
+	}
 }

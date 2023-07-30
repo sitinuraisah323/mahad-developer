@@ -20,4 +20,12 @@ class Schedules extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    function getSchedul(){
+        return $this->select('schedule.id, subject.name as materi, days.name as hari')
+                    ->from('schedule')
+                    ->join('subject','subject.id=schedule.id_subject')
+                    ->join('days','days.id=schedule.id_days')
+                    ->findAll();
+        }
 }

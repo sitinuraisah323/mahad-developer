@@ -13,70 +13,76 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Materi</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Jadwal Pembelajaran</li>
+                        <li class="breadcrumb-item active" aria-current="page">Detail Materi</li>
                     </ol>
                 </nav>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12 grid-margin stretch-card d-none d-md-flex">
                     <div class="card">
                         <div class="card-body">
-                            <div class="container text-center pt-3">
-                                <h4 class="mb-3 mt-2">Media Pembelajaran Visual</h4>
-                                <p class="w-75 mx-auto mb-5">Merupakan media pembelajaran yang hanya mengandalkan indera penglihatan. Jenis media pembelajaran visual menampilan materialnya dengan menggunakan alat proyeksi atau proyektor. Pesan yang akan disampaikan dituangkan ke dalam bentuk-bentuk visual.</p>
-                                <div class="row pricing-table">
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-info pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-info">Kitab Kuning</h4>
-                                                <p>Pemateri : Ilhan Setiawan</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-success pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-success">Tahsin al-qira’ah</h4>
-                                                <p>Pemateri : Aisyah</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-success btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-primary pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-primary">Praktek Ibadah</h4>
-                                                <p>Pemateri: Ridwah</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-primary btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-info pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-info">Tsaqafah Ma’hadiyah</h4>
-                                                <p>Pemateri : Ilhan</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
+                            <h4 class="card-title">Tahsin Al-Qira'ah</h4>
+                            <div class="row">
+                                <div class="col-2">
+                                    <ul class="nav nav-pills nav-pills-vertical nav-pills-info" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                <i class="fa fa-home"></i>
+                                                Description
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                <i class="fa fa-download"></i>
+                                                Pdf
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                                <i class="far fa-envelope-open"></i>
+                                                Soal
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-10">
+                                    <div class="tab-content tab-content-vertical" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                            <div class="media">
+                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/Al_Quran.jpg" alt="sample image">
+                                                <div class="media-body">
+                                                    <h5 class="mt-0">رَبِّ زِدْنِي عِلْمًا، وَارْزُقْنِيْ فَهْمًا وَاجْعَلْنِيْ مِنَ الصَّالِحِيْنَ</h5>
+                                                    <p>
+                                                        Secara bahasa, tahsin berasal dari kata hassana-yuhassinu-tahsiinan (حسَّن - يحسِّن - تحسيناً). Kata tersebut dimaknai Raisya Maula Ibnu Rusyd dalam Panduan Praktis & Lengkap Tahsin, Tajwid, Tahfiz Untuk Pemula sebagai memperbaiki, mempercantik, membaguskan, atau menjadikan lebih baik daripada sebelumnya.
+                                                    </p>
+                                                    <p>
+                                                    Untuk itu, konteks memperbaiki dan mempercantik dalam tahsin adalah menggambarkan perbaikan dalam bacaan Al-Qur'an sesuai dengan tajwid. Baik dari segi makhorijul huruf atau tempat keluarnya huruf, sifat huruf, maupun keindahan bacaan.
+                                                    </p>
+                                                    <p>
+                                                    Di samping itu, keutamaan dari membaca Al-Qur'an dengan tahsin dapat menghindari perubahan makna pada sebuah ayat, perbedaan satu huruf saja sudah mengubah makna dari keseluruhan bacaan.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-success pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-success">Bi’ah Lughowiyah</h4>
-                                                <p>Pemateri: Siti Aisyah</p>
+                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                            <div class="media">
+                                                <img class="mr-3 w-25 rounded" src="http://www.urbanui.com/" alt="sample image">
+                                                <div class="media-body">
+                                                    <p>I'm thinking two circus clowns dancing. You? Finding a needle in a haystack isn't hard when every straw is computerized. Tell him time is of the essence.
+                                                        Somehow, I doubt that. You have a good heart, Dexter.</p>
+                                                </div>
                                             </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-success btn-block">Mulai Belajar</a>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                            <div class="media">
+                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/soal2.jpg" alt="sample image">
+                                                <div class="media-body">
+                                                    <ul>
+                                                        <li>Pengertian Tahsin</li>
+                                                        <li>Praktekan didepan Tutor atau Guru Q.s AR-RAHMAN 1-20 dengan menggunakan tahsin yang sudah dipelajari.</li>
+                                                        <li>Semoga Ilmunya Bermanfaat</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

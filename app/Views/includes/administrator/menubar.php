@@ -141,6 +141,7 @@
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Judul Materi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('DetailSubject') ?>">Detail Materi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('schedule/schedules') ?>">Jadwal Pembelajaran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('Soal') ?>">Soal</a></li>
               </ul>
             </div>
           </li>
@@ -164,7 +165,7 @@
             </div>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="fas fa-chart-pie menu-icon"></i>
               <span class="menu-title">Charts</span>
@@ -178,10 +179,10 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/charts/google-charts.html">Penilaian</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('profil') ?>">
+            <a class="nav-link" href="<?php echo base_url('profil/user') ?>">
               <i class="fa fa-user menu-icon"></i>
               <span class="menu-title">Profil</span>
             </a>
