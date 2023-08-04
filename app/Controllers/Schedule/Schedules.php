@@ -1,6 +1,5 @@
 <?php 
-namespace App\Controllers;
-use App\Models\Subjects;
+namespace App\Controllers\Schedule;
 use App\Middleware\Authenticated;
 
 class Schedules extends Authenticated
@@ -10,21 +9,8 @@ class Schedules extends Authenticated
 		return view('administrator/schedules/index');
 	}
 
-	public function show($id_subject)
+	public function users()
 	{
-    
-    $evaluation = new Evaluation();
-    $data['schedules'] = $evaluation->getEvaluation($id_subject);
-    $data['id_subject'] = $id_subject;
-        
-		return view('administrator/evaluation/index', $data);
+		return view('users/schedules/index');
 	}
-
-    public function users()
-	{
-        $subject = new Subjects();
-        $data['subject'] = $subject->getSubject();
-        
-        return view('users/schedules/index', $data);
-    }
 }
