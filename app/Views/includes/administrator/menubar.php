@@ -1,5 +1,5 @@
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar navbar-dark col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
+    <nav class="navbar navbar-info col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:40px; height:40px;" alt="logo" />
           <a style="font-weight: bold; color:#000000;">

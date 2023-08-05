@@ -20,7 +20,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend bg-transparent">
                     <span class="input-group-text bg-transparent border-right-0">
-                      <i class="fa fa-user text-dark"></i>
+                      <i class="fa fa-user text-primary"></i>
                     </span>
                   </div>
                   <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="Username" required autofocus>
@@ -31,7 +31,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend bg-transparent">
                     <span class="input-group-text bg-transparent border-right-0">
-                      <i class="fa fa-lock text-dark"></i>
+                      <i class="fa fa-lock text-primary"></i>
                     </span>
                   </div>
                   <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="Password" required>
