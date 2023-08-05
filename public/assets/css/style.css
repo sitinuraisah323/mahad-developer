@@ -19586,7 +19586,7 @@ input:focus {
     z-index: 1;
     position: absolute;
     right: 0;
-    background: #ffffff;
+    background: #778899;
     top: 60px;
     width: 50%;
   }
@@ -29041,7 +29041,7 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../images/iain.jpeg");
+  background: url("../images/auth/lockscreen-bg.jpg");
   background-size: cover;
 }
 

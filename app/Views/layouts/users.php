@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="<?= base_url(); ?>/assets/images/favicon.png" />
 </head>
 
-<body class="horizontal-menu">
+<body class="horizontal-menu sidebar-dark">
     <div class="container-scroller">
 
         <!-- start site-header -->

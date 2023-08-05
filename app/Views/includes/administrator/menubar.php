@@ -1,5 +1,5 @@
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
+    <nav class="navbar navbar-dark col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:40px; height:40px;" alt="logo" />
           <a style="font-weight: bold; color:#000000;">
@@ -29,13 +29,13 @@
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="fas fa-bell mx-0"></i>
-              <span class="count">16</span>
+              <!-- <span class="count">16</span> -->
             </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-envelope mx-0"></i>
-              <span class="count">25</span>
+              <!-- <span class="count">25</span> -->
             </a>
           </li>
           <li class="nav-item nav-profile dropdown">

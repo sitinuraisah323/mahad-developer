@@ -20,7 +20,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend bg-transparent">
                     <span class="input-group-text bg-transparent border-right-0">
-                      <i class="fa fa-user text-primary"></i>
+                      <i class="fa fa-user text-dark"></i>
                     </span>
                   </div>
                   <input type="text" class="form-control form-control-lg border-left-0" id="username" name="username" placeholder="Username" required autofocus>
@@ -31,7 +31,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend bg-transparent">
                     <span class="input-group-text bg-transparent border-right-0">
-                      <i class="fa fa-lock text-primary"></i>
+                      <i class="fa fa-lock text-dark"></i>
                     </span>
                   </div>
                   <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="Password" required>
@@ -41,17 +41,16 @@
                 <div class="form-check">
                   <label class="form-check-label text-muted">
                     <input type="checkbox" class="form-check-input">
-                    Keep me signed in
+                    <!-- Keep me signed in -->
                   </label>
                 </div>
-                <a href="#" class="auth-link text-black">Forgot password?</a>
               </div>
               <div class="my-3">
                 <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn btnlogin" type="submit">LOGIN</button>
               </div>
-              <div class="text-center mt-4 font-weight-light">
+              <!-- <div class="text-center mt-4 font-weight-light">
                 Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
-              </div>
+              </div> -->
             </form>
           </div>
         </div>

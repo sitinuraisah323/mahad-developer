@@ -1,4 +1,4 @@
-<nav class="navbar horizontal-layout-navbar fixed-top navbar-expand-lg">
+<nav class="navbar horizontal-layout-navbar  fixed-top navbar-expand-lg">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
         <a class="navbar-brand brand-logo" href="<?= base_url(); ?>/assets/index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:60px; height:60px;" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="<?= base_url(); ?>/assets/index-2.html"><img src="<?= base_url(); ?>/assets/images/logo-mini.svg" alt="logo" /></a>
