@@ -140,7 +140,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Judul Materi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('DetailSubject') ?>">Detail Materi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('schedule/schedules') ?>">Jadwal Pembelajaran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('schedule/schedule') ?>">Jadwal Pembelajaran</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('Soal') ?>">Soal</a></li>
               </ul>
             </div>

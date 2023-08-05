@@ -21,13 +21,13 @@ class Subjects extends Model
 
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id','name','description','status'];
+    protected $allowedFields = ['id','name', 'id_guru','description','status'];
 
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
     function getSubject(){
-        return $this->select('id, name')->findAll();
+        return $this->select('id, name, description')->findAll();
     }
 }

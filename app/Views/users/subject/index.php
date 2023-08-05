@@ -25,61 +25,19 @@
                                 <h4 class="mb-3 mt-2">Media Pembelajaran Visual</h4>
                                 <p class="w-75 mx-auto mb-5">Merupakan media pembelajaran yang hanya mengandalkan indera penglihatan. Jenis media pembelajaran visual menampilan materialnya dengan menggunakan alat proyeksi atau proyektor. Pesan yang akan disampaikan dituangkan ke dalam bentuk-bentuk visual.</p>
                                 <div class="row pricing-table">
+                                <?php foreach($subject as $s){ ?>
                                     <div class="col-md-4 grid-margin stretch-card pricing-card">
                                         <div class="card border border-info pricing-card-body">
                                             <div class="text-center pricing-card-head">
-                                                <h4 class="text-info">Kitab Kuning</h4>
-                                                <p>Pemateri : Ilhan Setiawan</p>
+                                                <h4 class="text-info"><?php echo $s->name; ?></h4>
+                                                <p><?php echo $s->description; ?></p>
                                             </div>
                                             <div class="wrapper">
                                                 <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-success pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-success">Tahsin al-qira’ah</h4>
-                                                <p>Pemateri : Aisyah</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-success btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-primary pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-primary">Praktek Ibadah</h4>
-                                                <p>Pemateri: Ridwah</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-primary btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-info pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-info">Tsaqafah Ma’hadiyah</h4>
-                                                <p>Pemateri : Ilhan</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 grid-margin stretch-card pricing-card">
-                                        <div class="card border border-success pricing-card-body">
-                                            <div class="text-center pricing-card-head">
-                                                <h4 class="text-success">Bi’ah Lughowiyah</h4>
-                                                <p>Pemateri: Siti Aisyah</p>
-                                            </div>
-                                            <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-success btn-block">Mulai Belajar</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>
