@@ -33,7 +33,7 @@
                                                 <p><?php echo $s->description; ?></p>
                                             </div>
                                             <div class="wrapper">
-                                                <a href="<?php echo base_url('subject/subject/detail') ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
+                                                <a href="<?php echo base_url("subject/subject/detail/$s->id") ?>" class="btn btn-outline-info btn-block">Mulai Belajar</a>
                                             </div>
                                         </div>
                                     </div>

@@ -18,23 +18,24 @@
                 </nav>
             </div>
             <div class="row">
+                <?php foreach($detail as $s =>$value) { ?>
                 <div class="col-md-12 grid-margin stretch-card d-none d-md-flex">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Tahsin Al-Qira'ah</h4>
+                            <h4 class="card-title"><?php echo $value->materi; ?></h4>
                             <div class="row">
                                 <div class="col-2">
                                     <ul class="nav nav-pills nav-pills-vertical nav-pills-info" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
                                                 <i class="fa fa-home"></i>
-                                                Description
+                                                Home
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                                                 <i class="fa fa-download"></i>
-                                                Pdf
+                                                Detail
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -52,24 +53,18 @@
                                                 <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/Al_Quran.jpg" alt="sample image">
                                                 <div class="media-body">
                                                     <h5 class="mt-0">رَبِّ زِدْنِي عِلْمًا، وَارْزُقْنِيْ فَهْمًا وَاجْعَلْنِيْ مِنَ الصَّالِحِيْنَ</h5>
-                                                    <p>
-                                                        Secara bahasa, tahsin berasal dari kata hassana-yuhassinu-tahsiinan (حسَّن - يحسِّن - تحسيناً). Kata tersebut dimaknai Raisya Maula Ibnu Rusyd dalam Panduan Praktis & Lengkap Tahsin, Tajwid, Tahfiz Untuk Pemula sebagai memperbaiki, mempercantik, membaguskan, atau menjadikan lebih baik daripada sebelumnya.
-                                                    </p>
-                                                    <p>
-                                                    Untuk itu, konteks memperbaiki dan mempercantik dalam tahsin adalah menggambarkan perbaikan dalam bacaan Al-Qur'an sesuai dengan tajwid. Baik dari segi makhorijul huruf atau tempat keluarnya huruf, sifat huruf, maupun keindahan bacaan.
-                                                    </p>
-                                                    <p>
-                                                    Di samping itu, keutamaan dari membaca Al-Qur'an dengan tahsin dapat menghindari perubahan makna pada sebuah ayat, perbedaan satu huruf saja sudah mengubah makna dari keseluruhan bacaan.
-                                                    </p>
+                                                    <br>
+                                                    <p><b>Pemateri : </b> <?php echo $value->pemateri; ?></p>
+                                                    <p><?php echo $value->description; ?></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                             <div class="media">
-                                                <img class="mr-3 w-25 rounded" src="http://www.urbanui.com/" alt="sample image">
+                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/cantikbg.png" alt="sample image">
                                                 <div class="media-body">
-                                                    <p>I'm thinking two circus clowns dancing. You? Finding a needle in a haystack isn't hard when every straw is computerized. Tell him time is of the essence.
-                                                        Somehow, I doubt that. You have a good heart, Dexter.</p>
+                                                    <p><?php echo $value->description1; ?></p>
+                                                    <p><?php echo $value->description2; ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
         <!-- content-wrapper ends -->

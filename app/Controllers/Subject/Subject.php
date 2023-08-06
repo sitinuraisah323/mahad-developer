@@ -18,8 +18,19 @@ class Subject extends Authenticated
 		return view('users/subject/index', $data);
 	}
 	
-	public function detail()
+	public function detail($id_subject)
 	{
-		return view('users/subject/detail');
+		$detail = new DetailSubjects();
+		$data['detail'] = $detail->getDetailSubject($id_subject);
+		$data['id_subject'] = $id_subject;
+		$id_page = $id_subject;
+		// var_dump($data);
+		// exit;
+		if(!empty($data['detail'])){
+			return view('users/subject/detail', $data);
+		}
+		else {
+			return view('users/error');
+		}
 	}
 }
