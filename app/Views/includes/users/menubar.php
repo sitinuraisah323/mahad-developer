@@ -54,14 +54,14 @@
                         Penilaian
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo base_url('profil/user') ?>">
-                        <i class="fa fa-user mr-2 text-primary"></i>
-                        Profil
-                    </a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?php echo base_url('schedule/schedule/users') ?>">
                         <i class="fa fa-user-multiple-outline mr-2 text-primary"></i>
                         Jadwal Pembelajaran
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="<?php echo base_url('profil/user') ?>">
+                        <i class="fa fa-user mr-2 text-primary"></i>
+                        Profil
                     </a>
                 </div>
             </li>

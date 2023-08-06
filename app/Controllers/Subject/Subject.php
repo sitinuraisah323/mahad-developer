@@ -4,6 +4,7 @@ use App\Models\Subjects;
 
 use App\Middleware\Authenticated;
 use App\Models\DetailSubjects;
+use App\Models\Soal;
 
 class Subject extends Authenticated
 {
@@ -23,7 +24,8 @@ class Subject extends Authenticated
 		$detail = new DetailSubjects();
 		$data['detail'] = $detail->getDetailSubject($id_subject);
 		$data['id_subject'] = $id_subject;
-		$id_page = $id_subject;
+		$soal = new Soal();
+		$data['soal'] = $soal->getSoal($id_subject);
 		// var_dump($data);
 		// exit;
 		if(!empty($data['detail'])){

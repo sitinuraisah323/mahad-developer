@@ -18,66 +18,76 @@
                 </nav>
             </div>
             <div class="row">
-                <?php foreach($detail as $s =>$value) { ?>
-                <div class="col-md-12 grid-margin stretch-card d-none d-md-flex">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title"><?php echo $value->materi; ?></h4>
-                            <div class="row">
-                                <div class="col-2">
-                                    <ul class="nav nav-pills nav-pills-vertical nav-pills-info" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                                <i class="fa fa-home"></i>
-                                                Home
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                                <i class="fa fa-download"></i>
-                                                Detail
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                                <i class="far fa-envelope-open"></i>
-                                                Soal
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-10">
-                                    <div class="tab-content tab-content-vertical" id="v-pills-tabContent">
-                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div class="media">
-                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/Al_Quran.jpg" alt="sample image">
-                                                <div class="media-body">
-                                                    <h5 class="mt-0">رَبِّ زِدْنِي عِلْمًا، وَارْزُقْنِيْ فَهْمًا وَاجْعَلْنِيْ مِنَ الصَّالِحِيْنَ</h5>
-                                                    <br>
-                                                    <p><b>Pemateri : </b> <?php echo $value->pemateri; ?></p>
-                                                    <p><?php echo $value->description; ?></p>
+                <?php foreach ($detail as $s => $value) { ?>
+                    <div class="col-md-12 grid-margin stretch-card d-none d-md-flex">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><?php echo $value->materi; ?></h4>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <ul class="nav nav-pills nav-pills-vertical nav-pills-info" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                    <i class="fa fa-home"></i>
+                                                    Home
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                    <i class="fa fa-download"></i>
+                                                    Detail
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                                    <i class="far fa-envelope-open"></i>
+                                                    Soal
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-10">
+                                        <div class="tab-content tab-content-vertical" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <div class="media">
+                                                    <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/Al_Quran.jpg" alt="sample image">
+                                                    <div class="media-body">
+                                                        <h5 class="mt-0">رَبِّ زِدْنِي عِلْمًا، وَارْزُقْنِيْ فَهْمًا وَاجْعَلْنِيْ مِنَ الصَّالِحِيْنَ</h5>
+                                                        <br>
+                                                        <p><b>Pemateri : </b> <?php echo $value->pemateri; ?></p>
+                                                        <p><?php echo $value->description; ?></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <div class="media">
-                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/cantikbg.png" alt="sample image">
-                                                <div class="media-body">
-                                                    <p><?php echo $value->description1; ?></p>
-                                                    <p><?php echo $value->description2; ?></p>
+                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <div class="media">
+                                                    <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/cantikbg.png" alt="sample image">
+                                                    <div class="media-body">
+                                                        <p><?php echo $value->description1; ?></p>
+                                                        <p><?php echo $value->description2; ?></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                            <div class="media">
-                                                <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/soal2.jpg" alt="sample image">
-                                                <div class="media-body">
-                                                    <ul>
-                                                        <li>Pengertian Tahsin</li>
-                                                        <li>Praktekan didepan Tutor atau Guru Q.s AR-RAHMAN 1-20 dengan menggunakan tahsin yang sudah dipelajari.</li>
-                                                        <li>Semoga Ilmunya Bermanfaat</li>
-                                                    </ul>
-                                                </div>
+                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                <?php if (!empty($soal)) { ?>
+                                                    <?php foreach ($soal as $t => $test) { ?>
+                                                        <div class="media">
+                                                            <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/soal2.jpg" alt="sample image">
+                                                            <div class="media-body">
+                                                                <ul>
+                                                                    <li><?php echo $test->description; ?></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    <?php } ?>
+                                                <?php }else{ ?>
+                                                    <div class="media">
+                                                            <img class="mr-3 w-25 rounded" src="<?= base_url(); ?>/assets/images/auth/soal2.jpg" alt="sample image">
+                                                            <div class="media-body">
+                                                                <b>Mohon Maaf untuk saat ini tidak ada test</b>
+                                                            </div>
+                                                        </div>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +95,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>

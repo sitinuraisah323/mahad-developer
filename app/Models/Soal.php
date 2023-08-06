@@ -21,11 +21,13 @@ class Soal extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
-    // function getSchedul(){
-    //     return $this->select('schedule.id, subject.name as materi, days.name as hari')
-    //                 ->from('schedule')
-    //                 ->join('subject','subject.id=schedule.id_subject')
-    //                 ->join('days','days.id=schedule.id_days')
-    //                 ->findAll();
-    //     }
+    function getSoal($id_subject)
+    {
+        return $this->select('*')->where('id_materi', $id_subject)->findAll();
+        // return $this->select('detail_subject.*, s.name as materi, s.description, v.name as pemateri')
+        // ->join('subject s', 's.id = detail_subject.id_subject')
+        // ->join('visitors v', 'v.id = detail_subject.id_pemateri')
+        // ->where('detail_subject.id_subject', $id_subject)
+        // ->findAll();
+    }
 }
