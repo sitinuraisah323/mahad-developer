@@ -117,6 +117,12 @@ class Visitors extends BaseApiController
 
     }
 
+    public function getGuru()
+    {
+        $data = $this->model->select('visitors.*')->WHERE('visitors.id_level=2')->findAll();
+        return $this->sendResponse($data);
+    }
+
     public function insert(){
         $this->validate([
             'name' => [

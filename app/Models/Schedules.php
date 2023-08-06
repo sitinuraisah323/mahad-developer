@@ -22,10 +22,9 @@ class Schedules extends Model
     protected $skipValidation     = false;
 
     function getSchedul(){
-        return $this->select('a.id,a.startdate,a.enddate, b.name as materi, c.name as hari')
-                    ->from('schedule a')
-                    ->join('subject b','b.id=a.id_subject','left')
-                    ->join('days c','c.id=a.id_days','left')
+        return $this->select('schedule.id,schedule.startdate,schedule.enddate, b.name as materi, c.name as hari')
+                    ->join('subject b','b.id=schedule.id_subject','left')
+                    ->join('days c','c.id=schedule.id_days','left')
                     ->findAll();
         }
 }

@@ -72,22 +72,26 @@
                         <input type="hidden" name="id" value="">
                         <div class="form-group">
                             <label>Judul Materi</label>
-                            <select type="text" id='id_materi' name="id_materi" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                            <select type="text" id='id_subject' name="id_subject" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                                 <option value="">-- Pilih materi --</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="name" class="col-form-label">Pemateri</label>
-                            <select type="text" id='id_guru' name="id_guru" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+                            <select type="text" id='id_pemateri' name="id_pemateri" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
                                 <option value="">-- Pilih materi --</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="description" class="col-form-label">Description:</label>
-                            <textarea class="form-control" id="exampleTextarea1" rows="5"></textarea>
+                            <label for="description1" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="exampleTextarea1" name="description1" rows="7"></textarea>
                         </div>
-                        <div class="card">
+                        <div class="form-group">
+                            <label for="description2" class="col-form-label">Detail lainnya:</label>
+                            <textarea class="form-control" id="exampleTextarea1" name="description2" rows="7"></textarea>
+                        </div>
+                        <!-- <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title d-flex">Dropify
                                     <small class="ml-auto align-self-end">
@@ -96,7 +100,7 @@
                                 </h4>
                                 <input type="file" class="dropify" />
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="modal-footer">
@@ -123,8 +127,10 @@
             var dataTable;
             const formClear = () => {
                 $('#addSubject').find('[name="id"]').val('');
-                $('#addSubject').find('[name="name"]').val('');
-                $('#addSubject').find('[name="description"]').val('');
+                $('#addSubject').find('[name="id_subject"]').val('');
+                $('#addSubject').find('[name="id_pemateri"]').val('');
+                $('#addSubject').find('[name="description1"]').val('');
+                $('#addSubject').find('[name="description2"]').val('');
             }
             const openModal = () => {
                 formClear();
@@ -150,7 +156,7 @@
                 let formData = new FormData(event.target);
                 let id = $('#addSubject').find('[name="id"]').val();
                 if (id === '') {
-                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/insert`, formData).then(res => {
+                    axios.post(`<?php echo base_url(); ?>/api/Detail/Detail/insert`, formData).then(res => {
                         let status = res.data.status;
                         let data = res.data.data;
                         if (status === 422) {
@@ -163,7 +169,7 @@
                         $('#addSubject').modal('hide');
                     });
                 } else {
-                    axios.post(`<?php echo base_url(); ?>/api/subject/subject/updated`, formData).then(res => {
+                    axios.post(`<?php echo base_url(); ?>/api/Detail/Detail/updated`, formData).then(res => {
                         let status = res.data.status;
                         let data = res.data.data;
                         if (status === 422) {
@@ -184,7 +190,7 @@
                     ordering: true,
                     searching: true,
                     ajax: {
-                        url: `<?php echo base_url(); ?>/api/subject/subject`,
+                        url: `<?php echo base_url(); ?>/api/Detail/Detail/getDetail`,
                         dataFilter: function(data) {
                             var json = jQuery.parseJSON(data);
                             json.recordsTotal = json.message.totalRecord;
@@ -197,15 +203,14 @@
                             data: "id"
                         },
                         {
-                            data: "name"
+                            data: "materi"
                         },
                         {
-                            data: "name"
+                            data: "pemateri"
                         },
                         {
                             data: function(data) {
                                 return `   <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit">Edit</button>
-                                <button  onclick="btnEdit(${data.id})" class="btn btn-success btn-edit">View</button>
                                       <button  onclick="btnDelete(${data.id})" class="btn btn-danger btn-delete">Delete</button>`;
                             }
                         }
@@ -214,7 +219,7 @@
             }
 
             // Get Data level
-            var materi = document.getElementById('id_materi');
+            var materi = document.getElementById('id_subject');
 
             axios.get(`<?php echo base_url(); ?>/api/subject/subject`).then(
                 res => {
@@ -233,9 +238,9 @@
             );
 
             // Get Data level
-            var guru = document.getElementById('id_guru');
+            var guru = document.getElementById('id_pemateri');
 
-            axios.get(`<?php echo base_url(); ?>/api/Visitors/teacher`).then(
+            axios.get(`<?php echo base_url(); ?>/api/Visitors/getGuru`).then(
                 res => {
                     const {
                         data
@@ -254,7 +259,7 @@
 
 
             const btnDelete = (id) => {
-                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                axios.get(`<?php echo base_url(); ?>/api/Detail/Detail/view/${id}`).then(res => {
                     swal({
                         title: 'Are you sure?',
                         text: `Once deleted, you will not be able to recover ${res.data.data.level}!`,
@@ -263,7 +268,7 @@
                         dangerMode: true,
                     }).then((willDelete) => {
                         if (willDelete) {
-                            axios.get(`<?php echo base_url(); ?>/api/subject/subject/deleted/${id}`).then(res => {
+                            axios.get(`<?php echo base_url(); ?>/api/Detail/Detail/deleted/${id}`).then(res => {
                                 swal(`Poof! ${res.data.data.level} has been deleted!`, {
                                     icon: 'success',
                                 });
@@ -278,10 +283,12 @@
             }
 
             const btnEdit = (id) => {
-                axios.get(`<?php echo base_url(); ?>/api/subject/subject/view/${id}`).then(res => {
+                axios.get(`<?php echo base_url(); ?>/api/Detail/Detail/view/${id}`).then(res => {
                     $('#addSubject').find('[name="id"]').val(res.data.data.id);
-                    $('#addSubject').find('[name="name"]').val(res.data.data.name);
-                    $('#addSubject').find('[name="description"]').val(res.data.data.description);
+                    $('#addSubject').find('[name="id_subject"]').val(res.data.data.id_subject);
+                    $('#addSubject').find('[name="id_pemateri"]').val(res.data.data.id_pemateri);
+                    $('#addSubject').find('[name="description1"]').val(res.data.data.description1);
+                    $('#addSubject').find('[name="description2"]').val(res.data.data.description2);
                 }).then(res => $('#addSubject').modal('show'))
             }
 

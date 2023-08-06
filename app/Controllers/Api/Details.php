@@ -1,4 +1,4 @@
-<?php namespace App\Controllers\Api\Settings;
+<?php namespace App\Controllers\Api\Details;
 use App\Controllers\Api\BaseApiController;
 
 /**

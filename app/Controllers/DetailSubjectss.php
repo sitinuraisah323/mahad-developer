@@ -11,7 +11,7 @@ use CodeIgniter\Database\Postgre\Connection;
 
 
 // use  CodeIgniter\Database\BaseConnection();
-class DetailSubject extends Authenticated
+class DetailSubjectss extends Authenticated
 {
 
 	//  private $db1;
