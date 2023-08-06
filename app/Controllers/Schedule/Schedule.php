@@ -14,8 +14,8 @@ class Schedule extends Authenticated
 	{
 		$schedule = new Schedules();
         $data['schedule'] = $schedule->getSchedul();
-		var_dump($data);
-		exit;
+		// var_dump($data);
+		// exit;
 		return view('users/schedules/index', $data);
 	}
 }

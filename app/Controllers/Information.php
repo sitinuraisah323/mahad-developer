@@ -6,6 +6,7 @@ use App\Models\Area;
 use App\Models\MonitoringOsView;
 use App\Models\Notifications as ModelsNotifications;
 use App\Models\pawn_transactionsModel;
+use App\Models\Pengumuman;
 use Prophecy\Doubler\ClassPatch\DisableConstructorPatch;
 use CodeIgniter\Database\Postgre\Connection;
 
@@ -20,7 +21,9 @@ class Information extends Authenticated
 	
 	public function index()
 	{
-		return view('users/information');
+		$pengumuman = new Pengumuman();
+        $data['pengumuman'] = $pengumuman->getPengumuman();
+		return view('users/information', $data);
 	}
 
 	

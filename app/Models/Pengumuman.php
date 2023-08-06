@@ -26,4 +26,8 @@ class Pengumuman extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    function getPengumuman(){
+        return $this->select('id, subject, detail')->findAll();
+    }
 }

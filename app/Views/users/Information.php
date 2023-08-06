@@ -24,67 +24,33 @@
                 <div class="card-body">
                     <h4 class="card-title">Halaman Informasi~</h4>
                     <div class="row">
-                        <div class="col-4">
-                            <ul class="nav nav-tabs nav-tabs-vertical-custom" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab-custom" data-toggle="tab" href="#home-3" role="tab" aria-controls="home-3" aria-selected="true">
-                                        Daftar Ulang Santri Baru!
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab-custom" data-toggle="tab" href="#profile-3" role="tab" aria-controls="profile-3" aria-selected="false">
-                                        Nilai Sementara
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="contact-tab-custom" data-toggle="tab" href="#contact-3" role="tab" aria-controls="contact-3" aria-selected="false">
-                                        Tips untuk selalu semangat Belajar!
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        
+                            <div class="col-4">
+                                <ul class="nav nav-tabs nav-tabs-vertical-custom" role="tablist">
+                                <?php foreach ($pengumuman as $index => $tab) { ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link <?php echo $index === 0 ? 'active' : ''; ?>" data-toggle="tab" href="#tab_<?php echo $tab->id; ?>" role="tab">
+                                            <?php echo $tab->subject; ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        
                         <div class="col-9 col-lg-6">
                             <div class="tab-content tab-content-vertical tab-content-vertical-custom">
-                                <div class="tab-pane fade show active" id="home-3" role="tabpanel" aria-labelledby="home-tab-custom">
-                                    <h3 class="font-weight-normal">Tahun Ajaran Baru Dimulai!</h3>
-                                    <div class="d-flex mt-4">
-                                        <!-- -->
-                                        <img src="<?php echo base_url() ?>/assets/images/auth/santri.jpg" class="w-25 h-100 ml-2 rounded" alt="image" />
-                                    </div>
-                                    <p class="mt-4">
-                                        Untuk kedatangan santri kembali ke pondok pesantren di bagi kepada dua tahap, untuk santri kelas 8,9, 11, dan 12, mereka kembali pada hari Minggu, 9 Juli 2023. Sementara santri kelas 7 dan kelas 10, atau santri baru, datang pada Rabu, 12 Juli 2023. Suasana bahagia, haru, sedih, dan keriuhan tampak di halaman pondok pesantren tersebut.
-                                    </p>
-                                </div>
-                                <div class="tab-pane fade" id="profile-3" role="tabpanel" aria-labelledby="profile-tab-custom">
-                                    <div class="media">
-                                        <img class="align-self-center mr-3 w-25 rounded" src="../../images/samples/300x300/15.jpg" alt="sample image">
-                                        <div class="media-body">
-                                            <p>
-                                                And until then, I can never die? I'm a thing. Fry, you can't just sit here in the dark listening to
-                                                classical music. Is today's hectic lifestyle making you tense and impatient? Is today's hectic lifestyle
-                                                making you tense and impatient?
-                                            </p>
-                                            <p>
-                                                Robot 1-X, save my friends! And Zoidberg! Aww, it's true. I've been hiding it for so long. Fry, we have a
-                                                crate to deliver. Yes! In your face, Gandhi! Interesting. No, wait, the other thing: tedious.
-                                            </p>
-                                            <p>
-                                                Five hours? Aw, man! Couldn't you just get me the death penalty? Yes! In your face, Gandhi! We're rescuing
-                                                ya. Yeah, I do that with my stupidness. With gusto.
-                                            </p>
+                                <?php foreach ($pengumuman as $index => $tab) { ?>
+                                    <div class="tab-pane <?php echo $index === 0 ? 'active' : ''; ?>"  id="tab_<?php echo $tab->id; ?>" role="tabpanel">
+                                        <h3 class="font-weight-normal"><?php echo $tab->subject; ?></h3>
+                                        <div class="d-flex mt-4">
+                                            <!-- -->
+                                            <img src="<?php echo base_url() ?>/assets/images/auth/santri.jpg" class="w-25 h-100 ml-2 rounded" alt="image" />
                                         </div>
+                                        <p class="mt-4">
+                                            <?php echo $tab->detail; ?>
+                                        </p>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="contact-3" role="tabpanel" aria-labelledby="contact-tab-custom">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h5 class="mt-0 mb-1">You've swallowed a planet!</h5>
-                                            Did I mention we have comfy chairs? You hate me; you want to kill me! Well, go on! Kill me! KILL ME! I'm the Doctor,
-                                            I'm worse than everyone's aunt. *catches himself* And that is not how I'm introducing myself.
-                                        </div>
-                                        <img class="ml-3 w-25" src="../../images/samples/300x300/5.jpg" alt="sample image">
-                                    </div>
-                                </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

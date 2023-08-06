@@ -43,7 +43,7 @@
                       <div class="tab-content">
                         <?php foreach ($subject as $index => $tab): ?>
                           <div class="tab-pane <?php echo $index === 0 ? 'active' : ''; ?>" id="tab_<?php echo $tab->id; ?>" role="tabpanel">
-                            <table id="datatable_<?php echo $tab->id; ?>" class="table">
+                            <table class="table" id="datatable_<?php echo $tab->id; ?>" >
                               <thead>
                                 <tr>
                                   <th>#Id</th>

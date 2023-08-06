@@ -11,7 +11,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Schedules
+                    Jadwal Pembelajaran
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -34,6 +34,7 @@
                                             <h3 class="popover-header"><?php echo $s->hari; ?></h3>
                                             <div class="popover-body">
                                                 <p><?php echo $s->materi; ?></p>
+                                                <b><?php echo $s->startdate." - ".$s->enddate; ?></b>
                                             </div>
                                         </div>
                                     <?php } ?>
