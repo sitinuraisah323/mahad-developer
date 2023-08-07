@@ -26,7 +26,7 @@
                   <h4 class="card-title">
                     <div class="row">
                     <div class="col-10">Data Nilai</div>
-                    <div class="col-sm-2 col-md-2 col-lg-2"><a href=''><i class="fa fa-download"></i> Sertifikat</a></div></h4>
+                    <div class="col-sm-2 col-md-2 col-lg-2"><a href='<?php echo base_url('evaluations/preview'); ?>'><i class="fa fa-download"></i> Sertifikat</a></div></h4>
                   
                   <div class="row">
                     <div class="col-3">
