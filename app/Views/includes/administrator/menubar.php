@@ -99,7 +99,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-
+          <?php if(session('user.level')=='Administrator'){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
               <i class="far fa-sun menu-icon"></i>
@@ -113,7 +113,8 @@
               </ul>
             </div>
           </li>
-
+          <?php } ?>
+          <?php if(session('user.level')=='Administrator'){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
               <i class="fab fa-trello menu-icon"></i>
@@ -122,13 +123,13 @@
             </a>
             <div class="collapse" id="page-layouts">
               <ul class="nav flex-column sub-menu">
-
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datamaster/student') ?>">Siswa</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('datamaster/teacher') ?>">Guru</a></li>
                 <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url('Days') ?>">Days</a></li>
               </ul>
             </div>
           </li>
+          <?php } ?>
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -140,8 +141,10 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Judul Materi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('DetailSubjectss') ?>">Detail Materi</a></li>
+                <?php if(session('user.level')=='Administrator'){ ?>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('schedule/schedule') ?>">Jadwal Pembelajaran</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('Soal') ?>">Soal</a></li>
+                <?php } ?>
               </ul>
             </div>
           </li>
@@ -180,13 +183,14 @@
               </ul>
             </div>
           </li> -->
-
+          <?php if(session('user.level')=='Administrator'){ ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('Pengumuman') ?>">
               <i class="fa fa-info-circle menu-icon"></i>
               <span class="menu-title">Pengumuman</span>
             </a>
           </li>
+          <?php } ?>
 
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('Profil/admin') ?>">
