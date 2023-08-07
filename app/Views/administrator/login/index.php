@@ -82,7 +82,7 @@
         return;
       }
       console.log(res.data.data.user.id_level);
-      if(res.data.data.user.id_level == 1){
+      if(res.data.data.user.id_level == 1 || res.data.data.user.id_level== 2){
         location.href = `<?php echo base_url('/dashboard');?>`;
       }
       else{
