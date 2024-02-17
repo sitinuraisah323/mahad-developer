@@ -206,8 +206,8 @@
           },
           {
             data: function(data) {
-              return ` <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit">Edit</button>
-                                      <button  onclick="btnDelete(${data.id})" class="btn btn-danger btn-delete">Delete</button>`;
+              return ` <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit"><i class="fa fa-edit"></i></button>
+                                      <button  onclick="btnDelete(${data.id})" class="btn btn-danger btn-delete"><i class="fa fa-window-close"></i></button>`;
             }
           }
         ],

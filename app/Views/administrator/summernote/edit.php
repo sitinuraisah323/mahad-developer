@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 
-<!-- Mirrored from www.urbanui.com/melody/template/pages/forms/wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:25 GMT -->
+<!-- Mirrored from www.urbanui.com/melody/template/pages/forms/text_editor.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:26 GMT -->
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>MA'HAD || E LEARNING</title>
+  <title>Melody Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/iconfonts/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/vendors/iconfonts/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/vendors/summernote/dist/summernote-bs4.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?= base_url(); ?>/assets/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/images/favicon.png" />
 </head>
 
 <body>
   <div class="container-scroller">
-    <!-- partial:<?= base_url(); ?>/assets/partials/_navbar.html -->
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar navbar-info col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <span class="navbar-brand brand-logo" href="index-2.html"><img src="<?= base_url(); ?>/assets/images/auth/komputrer.png" style="width:40px; height:40px;" alt="logo" />
@@ -91,7 +91,7 @@
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_settings-panel.html -->
+      <!-- partial:../../partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
         <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
         <div id="theme-settings" class="settings-panel">
@@ -115,9 +115,8 @@
           </div>
         </div>
       </div>
-
       <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
@@ -231,91 +230,62 @@
         </ul>
       </nav>
       <!-- partial -->
-
-
-      <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-              Data Users
+
             </h3>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                <li class="breadcrumb-item"><a href="#">Editors</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detail Pembelajaran</li>
               </ol>
             </nav>
           </div>
-          <div class="row">
-            <div class="col-12 grid-margin">
+          <div class="row grid-margin">
+            <div class="col-lg-12">
               <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Form pendaftaran User Baru</h4>
-                  <form id="example-form" onsubmit="submitform(event)">
-                    <div>
-                      <h3>Account</h3>
-                      <section>
-                        <!-- <h4>Account</h4> -->
-                        <div class="form-group">
-                          <label>Username</label>
-                          <input type="text" name="username" id="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                <form id="example-form" action="/SummernoteController/updated/<?= $summernote['id']; ?>">
+                  <div class="card-body">
+                    <h4 class="card-title">Editor</h4>
+                    <div class="row mt-2">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Subject</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="subject">
+                              <?php foreach ($subject as $s) : ?>
+                                <option value="<?= $s->id; ?>" <?php echo ($s->id == $summernote['subject']) ? 'selected' : ''; ?>><?= $s->name; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label>Email address</label>
-                          <input type="email" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Sub Subject</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="sub_subject" name="sub_subject" value="<?= $summernote['sub_subject']; ?>" placeholder="Judul Sub Subject">
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label>Password</label>
-                          <input type="password" name="password" id="password" class="form-control" placeholder="Password" required autofocus>
-                        </div>
-                        <div class="form-group">
-                          <label>Level User</label>
-                          <select type="text" id='id_level' name="id_level" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                            <option value="">-- Pilih Level --</option>
-                          </select>
-                        </div>
-
-                      </section>
-                      <h3>Profile</h3>
-                      <section>
-                        <h4>Profile</h4>
-                        <div class="form-group">
-                          <label>Nama Lengkap</label>
-                          <input type="text" name="name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Nama Lengkap" required autofocus>
-                        </div>
-                        <div class="form-group">
-                          <label>Jenis Kelamin</label>
-                          <select type="text" id='gender' name="gender" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
-                            <option value="">-- Pilih Jenis Kelamin --</option>
-                            <option value="Male">Laki-laki</option>
-                            <option value="Female">Perempuan</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Alamat</label>
-                          <input type="text" name="address" id="address" class="form-control" placeholder="Jl. Pegangsaan ......" required autofocus>
-                        </div>
-                      </section>
-                      <h3>Finish</h3>
-                      <section>
-                        <h4>Finish</h4>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox">
-                            I agree with the Terms and Conditions.
-                          </label>
-                        </div>
-                      </section>
+                      </div>
                     </div>
-                  </form>
-                </div>
+                    <div class="form-group">
+                      <textarea id="summernoteExample" name="summernoteExample" placeholder="">
+                          <?= $summernote['content']; ?>
+                      </textarea>
+                    </div>
+
+                    <div class="mt-2">
+                      <button type="submit" class="btn btn-info btn-save">Edit</button>
+                    </div>
+
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <!--vertical wizard-->
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -333,20 +303,161 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="<?= base_url(); ?>/assets/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="<?php echo base_url(); ?>/assets/vendors/tinymce/tinymce.min.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/vendors/tinymce/themes/modern/theme.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/vendors/summernote/dist/summernote-bs4.min.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+  <!-- plugin js for this page -->
   <!-- inject:js -->
-  <script src="<?= base_url(); ?>/assets/js/off-canvas.js"></script>
-  <script src="<?= base_url(); ?>/assets/js/hoverable-collapse.js"></script>
-  <script src="<?= base_url(); ?>/assets/js/misc.js"></script>
-  <script src="<?= base_url(); ?>/assets/js/settings.js"></script>
-  <script src="<?= base_url(); ?>/assets/js/todolist.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/off-canvas.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/hoverable-collapse.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/misc.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/settings.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/todolist.js"></script>
   <script src="<?php echo base_url(); ?>/assets/js/axios/dist/axios.js"></script>
-
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="<?= base_url(); ?>/assets/js/wizard.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/js/editorDemo.js"></script>
+  <!-- End custom js for this page-->
+  <!-- <script type="text/javascript">
+      var dataTable;
+      const formClear = () => {
+        $('#addRole').find('[name="id"]').val('');
+        $('#addRole').find('[name="subject"]').val('');
+        $('#addRole').find('[name="content"]').val('');
+      }
+      const openModal = () => {
+        formClear();
+
+        $('#addRole').modal('show');
+      }
+
+      $('#upload-file').on('change', function(event) {
+        $('#addRole').find('.btn-save').addClass('d-none');
+        let file = event.target.files[0];
+        let formData = new FormData();
+        formData.append('file', file);
+        axios.post(`<?php echo base_url(); ?>/api/filedrives/upload`, formData).then(res => {
+          let id = res.data.data.id;
+          $('#id_file_drive').val(id);
+        }).then(res => {
+          $('#addRole').find('.btn-save').removeClass('d-none');
+        })
+      });
+
+      const submitform = (event) => {
+        event.preventDefault();
+        let formData = new FormData(event.target);
+        console.log(formData);
+          axios.post(`<?php echo base_url(); ?>/api/Summernote/SummerNote/insert`, formData).then(res => {
+            let status = res.data.status;
+            let data = res.data.data;
+            if (status === 422) {
+              let message = Object.values(data)[0];
+              swal('Validasi Inputan', message, 'error');
+              return;
+            }
+            formClear();
+            dataTable.ajax.reload();
+            $('#addRole').modal('hide');
+          });
+        // } else {
+        //   axios.post(`<?php echo base_url(); ?>/api/Summernote/SummerNote/updated`, formData).then(res => {
+        //     let status = res.data.status;
+        //     let data = res.data.data;
+        //     console.log(status)
+        //     if (status === 422) {
+        //       let message = Object.values(data)[0];
+        //       swal('Validasi Inputan', message, 'error');
+        //       return;
+        //     }
+        //     formClear();
+        //     dataTable.ajax.reload();
+        //     $('#addRole').modal('hide');
+        //   });
+        // }
+      }
+
+      const initDataTable = () => {
+        dataTable = $('#table-1').DataTable({
+          ordering: true,
+          retrieve: true,
+          dom: 'Bfrtip',
+          pageLength: 25,
+          destroy: true,
+          bDestroy: true,
+          processing: true,
+          serverSide: false,
+          ajax: {
+            url: `<?php echo base_url(); ?>/api/settings/levels`,
+            dataFilter: function(data) {
+              var json = jQuery.parseJSON(data);
+              json.recordsTotal = json.message.totalRecord;
+              json.recordsFiltered = json.message.totalRecord;
+              json.data = json.data;
+              return JSON.stringify(json); // return JSON string
+            },
+          },
+          columns: [{
+              data: "id"
+            },
+            {
+              data: "level"
+            },
+            {
+              data: function(data) {
+                return ` <button  onclick="btnEdit(${data.id})" class="btn btn-info btn-edit">Edit</button>
+                                      <button  onclick="btnDelete(${data.id})" class="btn btn-danger btn-delete">Delete</button>`;
+              }
+            }
+          ],
+        });
+      }
+
+      const btnDelete = (id) => {
+        axios.get(`<?php echo base_url(); ?>/api/Summernote/SummerNote/view/${id}`).then(res => {
+          swal({
+            title: 'Are you sure?',
+            text: `Once deleted, you will not be able to recover ${res.data.data.level}!`,
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+              axios.get(`<?php echo base_url(); ?>/api/Summernote/SummerNote/deleted/${id}`).then(res => {
+                swal(`Poof! ${res.data.data.level} has been deleted!`, {
+                  icon: 'success',
+                });
+                dataTable.ajax.reload();
+              });
+            } else {
+              swal('Your imaginary file is safe!');
+            }
+          });
+        })
+
+      }
+
+      const btnEdit = (id) => {
+        axios.get(`<?php echo base_url(); ?>/api/Summernote/SummerNote/view/${id}`).then(res => {
+          $('#addRole').find('[name="id"]').val(res.data.data.id);
+          $('#addRole').find('[name="level"]').val(res.data.data.level);
+          $('#addRole').find('[name="description"]').val(res.data.data.description);
+        }).then(res => $('#addRole').modal('show'))
+      }
+
+      const btnHistory = (id) => {
+        url = `<?php echo base_url(); ?>/api/settings/levelshistories?id_price_lm=${id}`;
+        dataTableHistory.ajax.url(url).load();
+        $('#modal-history').modal('show');
+      }
+
+      initDataTable();
+    </script> -->
 
   <script>
     // Get Data level
@@ -371,9 +482,9 @@
     const submitform = (event) => {
       event.preventDefault();
       let formData = new FormData(event.target);
-      formData.append('id_level', $('#id_level').val());
+      //   formData.append('id_level', $('#id_level').val());
       console.log(formData);
-      axios.post(`<?php echo base_url(); ?>/api/visitors/insert`, formData).then(res => {
+      axios.post(`<?php echo base_url(); ?>/api/Summernote/SummerNote/insert`, formData).then(res => {
         console.log(res)
         let status = res.data.status;
         let data = res.data.data;
@@ -382,28 +493,16 @@
           swal('Validasi Inputan', message, 'error');
           return;
         }
-
-      });
-      axios.post(`<?php echo base_url(); ?>/api/users/insert`, formData).then(res => {
-        console.log(res)
-        let status = res.data.status;
-        let data = res.data.data;
-        if (status === 422) {
-          let message = Object.values(data)[0];
-          swal('Validasi Inputan', message, 'error');
-          return;
-        }
-        window.location.href = `<?php echo base_url('datamaster/users'); ?>`;
+        window.location.href = `<?php echo base_url('SummernoteController/index'); ?>`;
         // dataTable.ajax.reload();
         // $('#modal-catalog-category').modal('hide');
       });
 
     }
   </script>
-  <!-- End custom js for this page-->
 </body>
 
 
-<!-- Mirrored from www.urbanui.com/melody/template/pages/forms/wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:26 GMT -->
+<!-- Mirrored from www.urbanui.com/melody/template/pages/forms/text_editor.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:29 GMT -->
 
 </html>

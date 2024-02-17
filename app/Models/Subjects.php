@@ -30,4 +30,11 @@ class Subjects extends Model
     function getSubject(){
         return $this->select('id, name, description')->findAll();
     }
+
+    public function getData($id = false){
+        if($id == false){
+            return $this->findAll();
+        }
+        return $this->where(['id' => $id])->first();
+    }
 }

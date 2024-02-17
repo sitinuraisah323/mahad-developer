@@ -141,6 +141,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('MateriController') ?>">Judul Materi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('DetailSubjectss') ?>">Detail Materi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('SummernoteController') ?>">Summernote</a></li>
                 <?php if(session('user.level')=='Administrator'){ ?>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('schedule/schedule') ?>">Jadwal Pembelajaran</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?php echo base_url('Soal') ?>">Soal</a></li>
